@@ -1,0 +1,372 @@
+<resources>
+    <string name="app_name" translatable="false">CovidSafe</string>
+    <string name="retry">Thử lại</string>
+    <string name="date_picker">Chọn ngày</string>
+
+    <!--        Login Fragment-->
+    <string name="login_title">Đăng nhập</string>
+    <string name="login_phone_number">Số điện thoại</string>
+    <string name="login_password">Mật khẩu</string>
+    <string name="login_forgot_password">Quên mật khẩu?</string>
+    <string name="login_fingerprint">Đăng nhập bằng vân tay</string>
+    <string name="login_you_don_not_have_account">Bạn chưa có tài khoản?</string>
+    <string name="login_register_now">Đăng ký ngay</string>
+
+    <!--        Register Fragment-->
+    <string name="register_title">Đăng ký</string>
+    <string name="register_phone_number">Số điện thoại</string>
+    <string name="register_password">Mật khẩu</string>
+    <string name="register_terms_and_conditions"><font color='#FFFF0000'>*</font> Vui lòng cung cấp thông tin chính xác để đảm bảo công tác phòng chống dịch Covid-19 và nhận chứng nhận tiêm chủng</string>
+
+    <!--        Verification Dialog-->
+    <string name="verification_title">Xác thực số điện thoại</string>
+    <string name="verification_please_enter_the_verification_code_sent_to_number">Vui lòng nhập mã xác thực gửi đến số</string>
+    <string name="verification_otp_is_valid_for">Mã xác thực hiệu lực: %s</string>
+    <string name="verification_activation_code_is_expired">Mã kích hoạt đã hết hiệu lực!</string>
+    <string name="verification_resend_code">Gửi lại mã</string>
+    <string name="verification_enter_otp_code_hint">Nhập mã OTP</string>
+    <string name="verification_otp_code">Mã OTP</string>
+
+    <!--    Profile Fragment-->
+    <string name="profile_title">Thông tin cá nhân</string>
+    <string name="profile_full_name">Họ và tên<font color='#FFFF0000'>*</font></string>
+    <string name="profile_date_of_birth">Ngày tháng năm sinh<font color='#FFFF0000'>*</font></string>
+    <string name="profile_gender">Giới tính<font color='#FFFF0000'>*</font></string>
+    <string name="profile_male">Nam</string>
+    <string name="profile_female">Nữ</string>
+    <string name="profile_phone_number">Số điện thoại<font color='#FFFF0000'>*</font></string>
+    <string name="profile_identification">CMND/CCCD/Hộ chiếu<font color='#FFFF0000'>*</font></string>
+    <string name="profile_email">Email</string>
+    <string name="profile_province">Tỉnh/Thành phố<font color='#FFFF0000'>*</font></string>
+    <string name="profile_district">Quận/Huyện<font color='#FFFF0000'>*</font></string>
+    <string name="profile_ward">Xã/Phường<font color='#FFFF0000'>*</font></string>
+    <string name="profile_address">Địa chỉ hiện tại</string>
+    <string name="profile_health_insurance_number">Số thẻ BHYT</string>
+    <string name="profile_nationality">Quốc tịch</string>
+    <string name="profile_ethnic">Dân tộc</string>
+    <string name="profile_religion">Tôn giáo</string>
+    <string name="profile_occupation">Nghề nghiệp</string>
+
+    <!--        Vaccine Registration-->
+    <string name="vaccine_registration_title">Hồ sơ tiêm chủng COVID-19</string>
+    <string name="vaccine_registration_covid19_vaccination">Tiêm chủng COVID-19</string>
+    <string name="vaccine_registration_date_of_birth">Ngày sinh</string>
+    <string name="vaccine_registration_list">Danh sách đăng ký tiêm COVID-19 ( %s )</string>
+
+    <string name="item_vaccine_registration_month_year">%s/%s</string>
+    <string name="item_vaccine_registration_hours_minutes_seconds">%s:%s:%s</string>
+
+    <!--    Add Vaccine Registration-->
+    <string name="add_vaccine_registration_title">Đăng ký tiêm vaccine</string>
+    <string name="add_vaccine_registration_full_name">Họ và tên<font color='#FFFF0000'>*</font></string>
+    <string name="add_vaccine_registration_date_of_birth">Ngày tháng năm sinh<font color='#FFFF0000'>*</font></string>
+    <string name="add_vaccine_registration_gender">Giới tính<font color='#FFFF0000'>*</font></string>
+    <string name="add_vaccine_registration_male">Nam</string>
+    <string name="add_vaccine_registration_female">Nữ</string>
+    <string name="add_vaccine_registration_identification">CMND/CCCD/Hộ chiếu<font color='#FFFF0000'>*</font></string>
+    <string name="add_vaccine_registration_health_insurance_number">Số thẻ BHYT</string>
+    <string name="add_vaccine_registration_preferred_vaccination_date">Thời gian mong muốn tiêm</string>
+    <string name="add_vaccine_registration_occupation">Nghề nghiệp<font color='#FFFF0000'>*</font></string>
+    <string name="add_vaccine_registration_priority_group">Đối tượng<font color='#FFFF0000'>*</font></string>
+    <string name="add_vaccine_registration_province">Tỉnh/Thành phố<font color='#FFFF0000'>*</font></string>
+    <string name="add_vaccine_registration_district">Quận/Huyện<font color='#FFFF0000'>*</font></string>
+    <string name="add_vaccine_registration_ward">Xã/Phường<font color='#FFFF0000'>*</font></string>
+    <string name="add_vaccine_registration_address">Địa chỉ hiện tại</string>
+    <string name="add_vaccine_registration_ethnic">Dân tộc<font color='#FFFF0000'>*</font></string>
+    <string name="add_vaccine_registration_nationality">Quốc tịch<font color='#FFFF0000'>*</font></string>
+    <string name="add_vaccine_registration_medical_history">Tiền sử bệnh</string>
+    <string name="add_vaccine_registration_yes">Có</string>
+    <string name="add_vaccine_registration_no">Không</string>
+    <string name="add_vaccine_registration_undefined">Không rõ</string>
+    <string name="add_vaccine_registration_symptom">Triệu chứng</string>
+    <string name="add_vaccine_registration_anaphylaxis">1. Tiền sử phản vệ từ độ 2 trở lên</string>
+    <string name="add_vaccine_registration_covid19">2. Tiền sử bị COVID-19 trong vòng 6 tháng</string>
+    <string name="add_vaccine_registration_other_vaccinations">3. Tiền sử tiêm vắc xin khác trong 14 ngày qua</string>
+    <string name="add_vaccine_registration_cancer">4. Tiền sử suy giảm miễn dịch, ung thư giai đoạn cuối, cắt lách, xơ gan mất bù ...</string>
+    <string name="add_vaccine_registration_taking_medicine">5. Đang dùng thuốc ức chế miễn dịch, corticoid liều ca (tương đương hoặc hơn 2mg prednisolon/kg/ngày trong ít nhất 7 ngày) hoặc điều trị hóa trị, xạ trị</string>
+    <string name="add_vaccine_registration_acute_illness">6. Bệnh cấp tính</string>
+    <string name="add_vaccine_registration_chronic_progressive_disease">7. Tiền sử bệnh mạn tính, đang tiến triển</string>
+    <string name="add_vaccine_registration_chronic_treated_well">8. Tiền sử bệnh mạn tính đã điều trị ổn</string>
+    <string name="add_vaccine_registration_pregnant">9. Đang mang thai, phụ nữ đang nuôi con bằng sữa mẹ</string>
+    <string name="add_vaccine_registration_more_than_65">10. Độ tuổi: ≥65 tuổi</string>
+    <string name="add_vaccine_registration_coagulation">11. Tiền sử rối loạn đông máu/cầm máu hoặc đang dùng thuốc chống đông</string>
+    <string name="add_vaccine_registration_allergy">12. Tiền sử dị ứng với các dị nguyên khác</string>
+    <string name="add_vaccine_registration_agree_form">Phiếu đồng ý tiêm</string>
+    <string name="add_vaccine_registration_condition1">1. Tiêm chủng vắc xin là biện pháp phòng chống dịch hiệu quả, tuy nhiên vắc xin phòng COVID-19 có thể không phòng được bệnh hoàn toàn. Người được tiêm chủng vắc xin phòng COVID-19 có thể phòng được bệnh hoặc giảm mức độ nặng nếu mắc bệnh. Tuy nhiên, sau khi tiêm chủng vẫn phải tiếp tục thực hiện nghiêm các biện pháp phòng chống dịch theo quy định.</string>
+    <string name="add_vaccine_registration_condition2">2. Tiêm chủng vắc xin phòng COVID-19 có thể gây ra một số biểu hiện tại chỗ tiêm hoặc toàn thân như sưng, đau chỗ tiêm, nhức đầu, buồn nôn, sốt, đau cơ…hoặc tai biến nặng sau tiêm chủng. Tiêm vắc xin mũi 2 do Pfizer sản xuất ở người đã tiêm mũi 1 bằng vắc xin AstraZeneca có thể tăng khả năng xảy ra phản ứng thông thường sau tiêm chủng.</string>
+    <string name="add_vaccine_registration_condition3">3. Khi có triệu chứng bất thường về sức khỏe, người được tiêm chủng cần đến ngay cơ sở y tế gần nhất để được tư vấn, thăm khám và điều trị kịp thời.</string>
+    <string name="add_vaccine_registration_after_reading">Sau khi đã đọc các thông tin nêu trên, tôi đã hiểu về các nguy cơ và: </string>
+    <string name="add_vaccine_registration_agree">Đồng ý tiêm chủng</string>
+
+    <!--    Vaccine Registration Detail-->
+    <string name="vaccine_registration_detail_title">Thông tin đăng ký tiêm</string>
+    <string name="vaccine_registration_detail_qrcode">(Mã QRCode dùng để khai báo khi tiêm vaccine)</string>
+    <string name="vaccine_registration_detail_created_time">%s/%s/%s %s:%s:%s</string>
+    <string name="vaccine_registration_detail_full_name">Họ và tên<font color='#FFFF0000'>*</font></string>
+    <string name="vaccine_registration_detail_date_of_birth">Ngày tháng năm sinh<font color='#FFFF0000'>*</font></string>
+    <string name="vaccine_registration_detail_gender">Giới tính<font color='#FFFF0000'>*</font></string>
+    <string name="vaccine_registration_detail_male">Nam</string>
+    <string name="vaccine_registration_detail_female">Nữ</string>
+    <string name="vaccine_registration_detail_identification">CMND/CCCD/Hộ chiếu<font color='#FFFF0000'>*</font></string>
+    <string name="vaccine_registration_detail_health_insurance_number">Số thẻ BHYT</string>
+    <string name="vaccine_registration_detail_preferred_vaccination_date">Thời gian mong muốn tiêm</string>
+    <string name="vaccine_registration_detail_occupation">Nghề nghiệp<font color='#FFFF0000'>*</font></string>
+    <string name="vaccine_registration_detail_priority_group">Đối tượng<font color='#FFFF0000'>*</font></string>
+    <string name="vaccine_registration_detail_province">Tỉnh/Thành phố<font color='#FFFF0000'>*</font></string>
+    <string name="vaccine_registration_detail_district">Quận/Huyện<font color='#FFFF0000'>*</font></string>
+    <string name="vaccine_registration_detail_ward">Xã/Phường<font color='#FFFF0000'>*</font></string>
+    <string name="vaccine_registration_detail_address">Địa chỉ hiện tại</string>
+    <string name="vaccine_registration_detail_ethnic">Dân tộc<font color='#FFFF0000'>*</font></string>
+    <string name="vaccine_registration_detail_nationality">Quốc tịch<font color='#FFFF0000'>*</font></string>
+    <string name="vaccine_registration_detail_medical_history">Tiền sử bệnh</string>
+    <string name="vaccine_registration_detail_yes">Có</string>
+    <string name="vaccine_registration_detail_no">Không</string>
+    <string name="vaccine_registration_detail_undefined">Không rõ</string>
+    <string name="vaccine_registration_detail_symptom">Triệu chứng</string>
+    <string name="vaccine_registration_detail_anaphylaxis">1. Tiền sử phản vệ từ độ 2 trở lên</string>
+    <string name="vaccine_registration_detail_covid19">2. Tiền sử bị COVID-19 trong vòng 6 tháng</string>
+    <string name="vaccine_registration_detail_other_vaccinations">3. Tiền sử tiêm vắc xin khác trong 14 ngày qua</string>
+    <string name="vaccine_registration_detail_cancer">4. Tiền sử suy giảm miễn dịch, ung thư giai đoạn cuối, cắt lách, xơ gan mất bù ...</string>
+    <string name="vaccine_registration_detail_taking_medicine">5. Đang dùng thuốc ức chế miễn dịch, corticoid liều ca (tương đương hoặc hơn 2mg prednisolon/kg/ngày trong ít nhất 7 ngày) hoặc điều trị hóa trị, xạ trị</string>
+    <string name="vaccine_registration_detail_acute_illness">6. Bệnh cấp tính</string>
+    <string name="vaccine_registration_detail_chronic_progressive_disease">7. Tiền sử bệnh mạn tính, đang tiến triển</string>
+    <string name="vaccine_registration_detail_chronic_treated_well">8. Tiền sử bệnh mạn tính đã điều trị ổn</string>
+    <string name="vaccine_registration_detail_pregnant">9. Đang mang thai, phụ nữ đang nuôi con bằng sữa mẹ</string>
+    <string name="vaccine_registration_detail_more_than_65">10. Độ tuổi: ≥65 tuổi</string>
+    <string name="vaccine_registration_detail_coagulation">11. Tiền sử rối loạn đông máu/cầm máu hoặc đang dùng thuốc chống đông</string>
+    <string name="vaccine_registration_detail_allergy">12. Tiền sử dị ứng với các dị nguyên khác</string>
+
+    <!--    Health Declaration Fragment-->
+    <string name="health_declaration_title">Khai báo y tế</string>
+    <string name="health_declaration_list">Danh sách tờ khai ( %s )</string>
+
+    <string name="item_health_declaration_month_year">%s/%s</string>
+    <string name="item_health_declaration_hours_minutes_seconds">%s:%s:%s</string>
+
+    <!--    Add Health Declaration Fragment-->
+    <string name="add_health_declaration_advise">Khuyến cáo: Khai báo thông tin sai là vi phạm pháp luật Việt Nam và có thể sử lý hình sự</string>
+    <string name="add_health_declaration_full_name">Họ và tên<font color='#FFFF0000'>*</font></string>
+    <string name="add_health_declaration_year_of_birth">Năm sinh<font color='#FFFF0000'>*</font></string>
+    <string name="add_health_declaration_identification">CMND/CCCD/Hộ chiếu<font color='#FFFF0000'>*</font></string>
+    <string name="add_health_declaration_gender">Giới tính<font color='#FFFF0000'>*</font></string>
+    <string name="add_health_declaration_male">Nam</string>
+    <string name="add_health_declaration_female">Nữ</string>
+    <string name="add_health_declaration_nationality">Quốc tịch<font color='#FFFF0000'>*</font></string>
+    <string name="add_health_declaration_province">Tỉnh/Thành phố<font color='#FFFF0000'>*</font></string>
+    <string name="add_health_declaration_district">Quận/Huyện<font color='#FFFF0000'>*</font></string>
+    <string name="add_health_declaration_ward">Xã/Phường<font color='#FFFF0000'>*</font></string>
+    <string name="add_health_declaration_address">Địa chỉ hiện tại<font color='#FFFF0000'>*</font></string>
+    <string name="add_health_declaration_phone_number">Số điện thoại<font color='#FFFF0000'>*</font></string>
+    <string name="add_health_declaration_email">Email<font color='#FFFF0000'>*</font></string>
+    <string name="add_health_declaration_yes">Có</string>
+    <string name="add_health_declaration_no">Không</string>
+    <string name="add_health_declaration_health_insurance_number">Số thẻ BHYT<font color='#FFFF0000'>*</font></string>
+    <string name="add_health_declaration_ethnic">Dân tộc<font color='#FFFF0000'>*</font></string>
+    <string name="add_health_declaration_religion">Tôn giáo<font color='#FFFF0000'>*</font></string>
+    <string name="add_health_declaration_occupation">Nghề nghiệp<font color='#FFFF0000'>*</font></string>
+    <string name="add_health_declaration_priority_group">Đối tượng<font color='#FFFF0000'>*</font></string>
+    <string name="add_health_declaration_visit">Trong vòng 14 ngày qua Anh/Chị có đến tỉnh/thành phố, quốc gia/vùng lãnh thổ nào (Có thể đi qua nhiều nơi)?<font color='#FFFF0000'>(*)</font></string>
+    <string name="add_health_declaration_symptoms">Trong vòng 14 ngày qua Anh/Chị có thấy xuất hiện ít nhất 1 trong các dấu hiệu: sốt, ho, khó thở, viêm phổi, đau họng, mệt mỏi không?<font color='#FFFF0000'>(*)</font></string>
+    <string name="add_health_declaration_contact">Trong vòng 14 ngày qua Anh/Chị có tiếp xúc với<font color='#FFFF0000'>(*)</font></string>
+    <string name="add_health_declaration_contact_sick_people">Người bệnh hoặc nghi ngờ, mắc bệnh COVID-19</string>
+    <string name="add_health_declaration_contact_epidemic_area">Người từ nước có bệnh COVID-19</string>
+    <string name="add_health_declaration_contact_symptoms_people">Người có biểu hiện (Sốt, ho, khó thở, viêm phổi)</string>
+    <string name="add_health_declaration_terms_and_conditions">Dữ liệu bạn cung cấp hoàn toàn được bảo mật và chỉ phục vụ cho việc phòng chống dịch, thuộc quản lý của Ban chỉ đạo quốc gia về Phòng chống dịch Covid-19. Khi bạn nhấn nút Gửi là bạn đã hiểu và đồng ý</string>
+
+    <!--    Health Declaration Detail Fragment-->
+    <string name="health_declaration_detail_title">Chi tiết khai báo y tế</string>
+    <string name="health_declaration_detail_qrcode">(Mã QRCode dùng để khai báo khi Check in, Check out)</string>
+    <string name="health_declaration_detail_created_time">%s/%s/%s %s:%s:%s</string>
+    <string name="health_declaration_detail_advise">Khuyến cáo: Khai báo thông tin sai là vi phạm pháp luật Việt Nam và có thể sử lý hình sự</string>
+    <string name="health_declaration_detail_full_name">Họ và tên<font color='#FFFF0000'>*</font></string>
+    <string name="health_declaration_detail_year_of_birth">Năm sinh<font color='#FFFF0000'>*</font></string>
+    <string name="health_declaration_detail_identification">CMND/CCCD/Hộ chiếu<font color='#FFFF0000'>*</font></string>
+    <string name="health_declaration_detail_gender">Giới tính<font color='#FFFF0000'>*</font></string>
+    <string name="health_declaration_detail_male">Nam</string>
+    <string name="health_declaration_detail_female">Nữ</string>
+    <string name="health_declaration_detail_nationality">Quốc tịch<font color='#FFFF0000'>*</font></string>
+    <string name="health_declaration_detail_province">Tỉnh/Thành phố<font color='#FFFF0000'>*</font></string>
+    <string name="health_declaration_detail_district">Quận/Huyện<font color='#FFFF0000'>*</font></string>
+    <string name="health_declaration_detail_ward">Xã/Phường<font color='#FFFF0000'>*</font></string>
+    <string name="health_declaration_detail_address">Địa chỉ hiện tại<font color='#FFFF0000'>*</font></string>
+    <string name="health_declaration_detail_phone_number">Số điện thoại<font color='#FFFF0000'>*</font></string>
+    <string name="health_declaration_detail_email">Email<font color='#FFFF0000'>*</font></string>
+    <string name="health_declaration_detail_yes">Có</string>
+    <string name="health_declaration_detail_no">Không</string>
+    <string name="health_declaration_detail_health_insurance_number">Số thẻ BHYT<font color='#FFFF0000'>*</font></string>
+    <string name="health_declaration_detail_ethnic">Dân tộc<font color='#FFFF0000'>*</font></string>
+    <string name="health_declaration_detail_religion">Tôn giáo<font color='#FFFF0000'>*</font></string>
+    <string name="health_declaration_detail_occupation">Nghề nghiệp<font color='#FFFF0000'>*</font></string>
+    <string name="health_declaration_detail_priority_group">Đối tượng<font color='#FFFF0000'>*</font></string>
+    <string name="health_declaration_detail_visit">Trong vòng 14 ngày qua Anh/Chị có đến tỉnh/thành phố, quốc gia/vùng lãnh thổ nào (Có thể đi qua nhiều nơi)?<font color='#FFFF0000'>(*)</font></string>
+    <string name="health_declaration_detail_symptoms">Trong vòng 14 ngày qua Anh/Chị có thấy xuất hiện ít nhất 1 trong các dấu hiệu: sốt, ho, khó thở, viêm phổi, đau họng, mệt mỏi không?<font color='#FFFF0000'>(*)</font></string>
+    <string name="health_declaration_detail_contact">Trong vòng 14 ngày qua Anh/Chị có tiếp xúc với<font color='#FFFF0000'>(*)</font></string>
+    <string name="health_declaration_detail_contact_sick_people">Người bệnh hoặc nghi ngờ, mắc bệnh COVID-19</string>
+    <string name="health_declaration_detail_contact_epidemic_area">Người từ nước có bệnh COVID-19</string>
+    <string name="health_declaration_detail_contact_symptoms_people">Người có biểu hiện (Sốt, ho, khó thở, viêm phổi)</string>
+    <string name="health_declaration_detail_terms_and_conditions">Dữ liệu bạn cung cấp hoàn toàn được bảo mật và chỉ phục vụ cho việc phòng chống dịch, thuộc quản lý của Ban chỉ đạo quốc gia về Phòng chống dịch Covid-19.</string>
+
+    <!--    Report Fragment-->
+    <string name="report_title">Phản ánh</string>
+    <string name="report_list">Danh sách phản ánh (%s)</string>
+    <string name="report_empty">Chưa có phản ánh</string>
+
+    <!--    Add Report Fragment-->
+    <string name="add_report_title">Gửi phản ánh</string>
+    <string name="add_report_location">Địa điểm</string>
+    <string name="add_report_province">Tỉnh/Thành phố</string>
+    <string name="add_report_district">Quận/Huyện</string>
+    <string name="add_report_ward">Xã/Phường</string>
+
+    <!--    Report Detail Fragment-->
+    <string name="report_detail_title">Chi tiết phản ánh</string>
+    <string name="report_detail_content">Nội dung phản ánh</string>
+    <string name="report_detail_location">Địa điểm</string>
+    <string name="report_detail_status">Trạng thái xử lý</string>
+    <string name="report_detail_waiting">Đang xử lý</string>
+    <string name="report_detail_status_waiting">Đơn vị phụ trách đang tiến hành xử lý phản ánh. Kết quả xử lý sẽ được cập nhật ngay khi xử lý xong.</string>
+    <string name="report_detail_status_finish">Đơn vị phụ trách đã xử lý xong phản ánh của bạn. Cảm ơn bạn đã gửi phản ánh cho chúng tôi. Chúc các bạn một ngày vui vẻ.</string>
+
+    <!--    Vaccination Fragment-->
+    <string name="vaccination_title">Thông tin tiêm vaccine</string>
+    <string name="vaccination_list">Danh sách tiêm vaccine (%s)</string>
+    <string name="vaccination_empty">Chưa tiêm vaccine</string>
+    <string name="vaccination_date">%s-%s-%s</string>
+
+    <!--    Vaccination Detail Fragment-->
+    <string name="vaccination_detail_title">Thông tin tiêm vaccine</string>
+    <string name="vaccination_detail_full_name">Họ và tên</string>
+    <string name="vaccination_detail_date_of_birth">Ngày sinh</string>
+    <string name="vaccination_detail_date">%s-%s-%s</string>
+    <string name="vaccination_detail_gender">Giới tính</string>
+    <string name="vaccination_detail_male">Nam</string>
+    <string name="vaccination_detail_female">Nữ</string>
+    <string name="vaccination_detail_detail_identification">CMND/CCCD/Hộ chiếu</string>
+    <string name="vaccination_detail_address">Địa chỉ hiện tại</string>
+    <string name="vaccination_detail_type">Tên Vaccine : %s</string>
+    <string name="vaccination_detail_vaccination_center">Trung tâm tiêm chủng : %s</string>
+    <string name="vaccination_detail_vaccine_registration">Hồ sơ đăng ký tiêm</string>
+    <string name="vaccination_detail_show">Xem hồ sơ</string>
+    <string name="vaccination_detail_no_vaccine_registration">Không có hồ sơ đăng ký tiêm</string>
+
+
+    <!--    Hint-->
+    <string name="hint_enter_password">Nhập mật khẩu</string>
+    <string name="hint_enter_content">Nhập nội dung</string>
+    <string name="hint_empty">Trống</string>
+    <string name="hint_date_month_year">Ngày/Tháng/Năm</string>
+    <string name="hint_select">-Chọn-</string>
+    <string name="hint_enter_report_content">Nhập nội dung phản ánh...</string>
+    <string name="hint_required_field">Trường bắt buộc</string>
+    <string name="hint_location_report">Địa điểm phản ánh</string>
+
+
+    <!--    Button-->
+    <string name="button_login">Đăng nhập</string>
+    <string name="button_register">Đăng ký</string>
+    <string name="button_ok">Xác nhận</string>
+    <string name="button_cancel">Huỷ bỏ</string>
+    <string name="button_save">Lưu thông tin</string>
+    <string name="button_add_vaccine_registration">Đăng ký tiêm vắc xin</string>
+    <string name="button_add_health_declaration">Khai báo y tế</string>
+    <string name="button_add_report">Gửi phản ánh</string>
+
+
+    <string name="profile_success">Cập nhật thành công</string>
+    <string name="profile_error">Đã có lỗi xảy ra, vui lòng thử lại sau</string>
+
+
+    <string name="status_processing">Đang xử lý</string>
+    <string name="status_finish">Hoàn tất</string>
+    <string name="status_registration">Đăng ký thành công</string>
+    <string name="status_refuse">Từ chối</string>
+
+    <string name="success_data_update_complete">Cập nhật dữ liệu thành công.</string>
+
+    <string name="success_add_vaccine_registration">Đăng ký tiêm thành công</string>
+    <string name="success_add_health_declaration">Khai báo y tế thành công</string>
+    <string name="success_add_report">Gửi phản ánh thành công</string>
+
+
+    <string name="error_phone_number_invalid">Số điện thoại không hợp lệ</string>
+    <string name="error_required_field"><font color='#FFFF0000'>*</font> Trường bắt buộc</string>
+    <string name="error_invalid_email">Email phải có dạng abc@def.ghj</string>
+
+    <string name="error_data_update">Cập nhật dữ liệu không thành công. Vui lòng thử lại sau.</string>
+    <string name="error_load_data">Cập nhật dữ liệu không thành công</string>
+
+
+    <string name="error_username_required_field">Tên đăng nhập không được để trống</string>
+    <string name="error_password_required_field">Mật khẩu không được để trống</string>
+    <string name="error_password_cant_be_less_than_6">Mật khẩu không được nhỏ hơn 6 ký tự</string>
+    <string name="error_password_1_digit">Yêu cầu ít nhất 1 chữ số</string>
+    <string name="error_password_upper_and_lower_case">Mật khẩu phải chứa chữ hoa và chữ thường</string>
+    <string name="error_password_1_special_character">Mật khẩu phải chứa ít nhất một ký tự đặc biệt</string>
+
+    <!--    Home Fragment-->
+    <string name="home_title">Trang chủ</string>
+    <string name="home_welcome">Xin chào</string>
+    <string name="home_profile">Thông tin cá nhân</string>
+    <string name="home_health_declaration">Khai báo y tế</string>
+    <string name="home_report">Phản ánh</string>
+    <string name="home_report_detail">Phản ánh</string>
+    <string name="home_vaccine_registration">Đăng ký tiêm vắc xin</string>
+    <string name="home_vaccine_registration_detail">Đăng ký vắc xin Covid-19 cho cá nhân</string>
+    <string name="home_no_information">Không có thông tin về việc tiêm chủng của bạn. Cập nhật mã số định danh và thử lại sau.</string>
+    <string name="home_health_records">Hồ sơ sức khoẻ</string>
+    <string name="home_no_injected">Chưa tiêm vaccine</string>
+    <string name="home_injected_dose">Đã tiêm vaccine mũi %s</string>
+
+
+    <!--    Account Fragment-->
+    <string name="account_title">Tài khoản</string>
+    <string name="account_identifier">Mã định danh</string>
+    <string name="account_profile">Thông tin cá nhân</string>
+    <string name="account_logout">Đăng xuất</string>
+
+
+    <!--    Toast-->
+    <string name="toast_notifytitle">Thông báo</string>
+    <string name="toast_warningtitle">Cảnh báo</string>
+
+    <string name="toast_non_null">Các trường bắt buộc không được để trống</string>
+    <string name="toast_login_success">Đăng nhập thành công</string>
+    <string name="toast_login_error">Đăng nhập không thành công. Số điện thoại hoặc mật khẩu không chính xác hoặc không hợp lệ</string>
+    <string name="toast_login_non_null">Số điện thoại và mật khẩu không được để trống</string>
+
+    <string name="toast_inputinvalidate">Dữ liệu nhập vào không hợp lệ</string>
+    <string name="toast_activationcodeisexpired">Mã kích hoạt đã hết hiệu lực!</string>
+    <string name="toast_invalidphonenumber">Số điện thoại không hợp lệ!</string>
+    <string name="toast_otpsentsuccessfully">Mã OTP đã được gửi về số điện thoại!</string>
+    <string name="toast_otpinvalidorexpired">Mã OTP không hợp lệ hoặc đã hết hạn!</string>
+
+
+    <string name="empty_result">Không có <b>%s</b> đã khai báo</string>
+
+
+    <string name="injected">Đã tiêm</string>
+    <string name="register">Đăng ký thành công</string>
+    <string name="refuse">Từ chối tiêm</string>
+    <string name="forward">Chuyển cơ sở y tế</string>
+
+    <string name="unknown_error">Unknown Error</string>
+    <string name="a11y_user_photo">user photo</string>
+    <string name="a11y_user_name">user name</string>
+    <string name="search_hint">search repositories</string>
+    <string name="repo_full_name"><b>%s</b>/%s</string>
+    <string name="empty_search_result">No results for <b>%s</b></string>
+    <string name="a11y_contributor_avatar">contributor avatar</string>
+
+    <string name="prefix_phone_number">+84</string>
+
+    <string name="identification_number">Mã số định danh</string>
+
+    <string name="camera_access_required">Camera access is required to display the camera preview.</string>
+    <string name="ok">OK</string>
+    <string name="camera_permission_not_available">Permission is not available. Requesting camera permission.</string>
+    <string name="camera_permission_available">Camera permission is available. Starting preview.</string>
+    <string name="camera_permission_granted">Camera permission was granted. Starting preview.</string>
+    <string name="camera_permission_denied">Camera permission request was denied.</string>
+    <string name="camera_unavailable"><b>Camera could not be opened.</b>\nThis occurs when the camera is not available (for example it is already in use) or if the system has denied access (for example when camera access has been disabled).</string>
+    <string name="error_agree">Bạn phải đồng ý các điều khoản trước khi gửi dữ liệu.</string>
+</resources>

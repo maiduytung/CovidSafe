@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="../../Library/Android/sdk/platforms/android-32/data/res/drawable/ic_lock_lock.xml" value="0.2085" />
+        <entry key="../../Library/Android/sdk/platforms/android-32/data/res/layout/simple_list_item_1.xml" value="0.19746376811594202" />
+        <entry key="app/src/main/res/drawable-v24/back_icon.xml" value="0.1185" />
+        <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.193" />
+        <entry key="app/src/main/res/drawable/back_icon.xml" value="0.1185" />
+        <entry key="app/src/main/res/drawable/bg_splash.xml" value="0.1185" />
+        <entry key="app/src/main/res/drawable/bg_tranference.xml" value="0.1185" />
+        <entry key="app/src/main/res/drawable/bg_transparent.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/blue_radient_background.xml" value="0.2085" />
+        <entry key="app/src/main/res/drawable/certificate_radius_background.xml" value="0.1185" />
+        <entry key="app/src/main/res/drawable/consentform_ic_shield_24.xml" value="0.143" />
+        <entry key="app/src/main/res/drawable/gradient_background_blue.xml" value="0.2085" />
+        <entry key="app/src/main/res/drawable/gradient_background_cyan.xml" value="0.2085" />
+        <entry key="app/src/main/res/drawable/gradient_background_green.xml" value="0.16" />
+        <entry key="app/src/main/res/drawable/gradient_background_light_bule.xml" value="0.147" />
+        <entry key="app/src/main/res/drawable/gradient_background_orange.xml" value="0.2085" />
+        <entry key="app/src/main/res/drawable/gradient_background_orange2.xml" value="0.2085" />
+        <entry key="app/src/main/res/drawable/gradient_background_orange3.xml" value="0.2085" />
+        <entry key="app/src/main/res/drawable/gradient_background_orange_dark.xml" value="0.2085" />
+        <entry key="app/src/main/res/drawable/gradient_background_orange_light.xml" value="0.2085" />
+        <entry key="app/src/main/res/drawable/gradient_background_violet.xml" value="0.2085" />
+        <entry key="app/src/main/res/drawable/gradient_background_violet2.xml" value="0.2085" />
+        <entry key="app/src/main/res/drawable/health_consultation_radius_background.xml" value="0.193" />
+        <entry key="app/src/main/res/drawable/home_ic_health_declaration_24.xml" value="0.2085" />
+        <entry key="app/src/main/res/drawable/home_ic_health_records_24.xml" value="0.2085" />
+        <entry key="app/src/main/res/drawable/home_ic_shield_24.xml" value="0.2085" />
+        <entry key="app/src/main/res/drawable/home_ic_time_left_24.xml" value="0.2085" />
+        <entry key="app/src/main/res/drawable/home_radius_background.xml" value="0.1185" />
+        <entry key="app/src/main/res/drawable/home_radius_background_blue.xml" value="0.193" />
+        <entry key="app/src/main/res/drawable/home_radius_background_green.xml" value="0.193" />
+        <entry key="app/src/main/res/drawable/home_radius_background_red.xml" value="0.193" />
+        <entry key="app/src/main/res/drawable/ic_baseline_check_circle_24.xml" value="0.193" />
+        <entry key="app/src/main/res/drawable/ic_baseline_health_declaration_24.xml" value="0.193" />
+        <entry key="app/src/main/res/drawable/ic_baseline_health_records_24.xml" value="0.193" />
+        <entry key="app/src/main/res/drawable/ic_baseline_injection_24.xml" value="0.193" />
+        <entry key="app/src/main/res/drawable/ic_baseline_lock_24.xml" value="0.193" />
+        <entry key="app/src/main/res/drawable/ic_baseline_logout_24.xml" value="0.193" />
+        <entry key="app/src/main/res/drawable/ic_baseline_people_24.xml" value="0.193" />
+        <entry key="app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.193" />
+        <entry key="app/src/main/res/drawable/ic_baseline_qr_code_scanner_24.xml" value="0.193" />
+        <entry key="app/src/main/res/drawable/ic_baseline_shield_24.xml" value="0.193" />
+        <entry key="app/src/main/res/drawable/ic_baseline_time_left_24.xml" value="0.193" />
+        <entry key="app/src/main/res/drawable/ic_baseline_warning_24.xml" value="0.1195" />
+        <entry key="app/src/main/res/drawable/ic_calender_24dp.xml" value="0.193" />
+        <entry key="app/src/main/res/drawable/ic_exit_to_app.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_home_24dp.xml" value="0.193" />
+        <entry key="app/src/main/res/drawable/ic_hospital_56dp.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.193" />
+        <entry key="app/src/main/res/drawable/ic_lock.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_menu_calender.xml" value="0.147" />
+        <entry key="app/src/main/res/drawable/ic_menu_home.xml" value="0.147" />
+        <entry key="app/src/main/res/drawable/ic_menu_notification.xml" value="0.147" />
+        <entry key="app/src/main/res/drawable/ic_notification_24dp.xml" value="0.193" />
+        <entry key="app/src/main/res/drawable/ic_profile_24dp.xml" value="0.193" />
+        <entry key="app/src/main/res/drawable/ic_qrcode_scanner.xml" value="0.16" />
+        <entry key="app/src/main/res/drawable/ic_shield_48.xml" value="0.2085" />
+        <entry key="app/src/main/res/drawable/ic_shield_512.xml" value="0.143" />
+        <entry key="app/src/main/res/drawable/ic_vaccine2_48.xml" value="0.2085" />
+        <entry key="app/src/main/res/drawable/ic_warning.xml" value="0.16" />
+        <entry key="app/src/main/res/drawable/login_ic_fingerprint_24.xml" value="0.193" />
+        <entry key="app/src/main/res/drawable/login_radius_background.xml" value="0.147" />
+        <entry key="app/src/main/res/drawable/menu_ic_calender_24dp.xml" value="0.147" />
+        <entry key="app/src/main/res/drawable/otp_verification_radius_background.xml" value="0.142" />
+        <entry key="app/src/main/res/drawable/otp_veriification_header_top_radius_background.xml" value="0.142" />
+        <entry key="app/src/main/res/drawable/personal_ic_logout_24.xml" value="0.193" />
+        <entry key="app/src/main/res/drawable/personal_ic_people_24.xml" value="0.147" />
+        <entry key="app/src/main/res/drawable/radius_background.xml" value="0.1185" />
+        <entry key="app/src/main/res/drawable/radius_background_white.xml" value="0.147" />
+        <entry key="app/src/main/res/drawable/splash_background.xml" value="0.1185" />
+        <entry key="app/src/main/res/drawable/vaccineregistration_ic_number_one_24.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/vaccineregistration_ic_number_three_24.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/vaccineregistration_ic_number_two_24.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_auth.xml" value="0.13728470111448834" />
+        <entry key="app/src/main/res/layout/activity_health_declaration.xml" value="0.28229166666666666" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.55" />
+        <entry key="app/src/main/res/layout/activity_profile.xml" value="0.28229166666666666" />
+        <entry key="app/src/main/res/layout/activity_splash.xml" value="0.13728470111448834" />
+        <entry key="app/src/main/res/layout/activity_vaccine_registration.xml" value="0.28229166666666666" />
+        <entry key="app/src/main/res/layout/app_bar_main.xml" value="0.23867753623188406" />
+        <entry key="app/src/main/res/layout/app_bar_vaccine_registration.xml" value="0.28229166666666666" />
+        <entry key="app/src/main/res/layout/content_main.xml" value="0.23867753623188406" />
+        <entry key="app/src/main/res/layout/content_vaccine_registration.xml" value="0.28229166666666666" />
+        <entry key="app/src/main/res/layout/contributor_item.xml" value="0.19610507246376813" />
+        <entry key="app/src/main/res/layout/dialog_fragment_otp.xml" value="0.25391540527343753" />
+        <entry key="app/src/main/res/layout/dialog_fragment_otp_verification.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/dialog_fragment_verification.xml" value="0.19927536231884058" />
+        <entry key="app/src/main/res/layout/dialog_verification.xml" value="0.28229166666666666" />
+        <entry key="app/src/main/res/layout/fragment_account.xml" value="0.28229166666666666" />
+        <entry key="app/src/main/res/layout/fragment_add_health_declaration.xml" value="0.18050789293067948" />
+        <entry key="app/src/main/res/layout/fragment_add_personal_information.xml" value="0.11041666666666666" />
+        <entry key="app/src/main/res/layout/fragment_add_report.xml" value="0.28229166666666666" />
+        <entry key="app/src/main/res/layout/fragment_add_vaccine_registration.xml" value="0.12595785440613028" />
+        <entry key="app/src/main/res/layout/fragment_calendar.xml" value="0.28229166666666666" />
+        <entry key="app/src/main/res/layout/fragment_certificate.xml" value="0.28229166666666666" />
+        <entry key="app/src/main/res/layout/fragment_consent_form.xml" value="0.28229166666666666" />
+        <entry key="app/src/main/res/layout/fragment_consentform.xml" value="0.2652740478515625" />
+        <entry key="app/src/main/res/layout/fragment_dashboard.xml" value="0.1109375" />
+        <entry key="app/src/main/res/layout/fragment_declaration.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_declaration_history.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/fragment_edit_personal_information.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/fragment_edit_profile.xml" value="0.23377777777777778" />
+        <entry key="app/src/main/res/layout/fragment_health_declaration.xml" value="0.26082771896053897" />
+        <entry key="app/src/main/res/layout/fragment_health_declaration_detail.xml" value="0.18050789293067948" />
+        <entry key="app/src/main/res/layout/fragment_health_declaration_history.xml" value="0.28229166666666666" />
+        <entry key="app/src/main/res/layout/fragment_health_declaration_record.xml" value="0.28229166666666666" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/fragment_information.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_login.xml" value="0.2727272727272727" />
+        <entry key="app/src/main/res/layout/fragment_medical_history.xml" value="0.41216730038022814" />
+        <entry key="app/src/main/res/layout/fragment_medicalhistory.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/fragment_notifications.xml" value="0.10873870849609374" />
+        <entry key="app/src/main/res/layout/fragment_personal.xml" value="0.3526448362720403" />
+        <entry key="app/src/main/res/layout/fragment_personal_infomation.xml" value="0.28229166666666666" />
+        <entry key="app/src/main/res/layout/fragment_personal_information.xml" value="0.21124497991967872" />
+        <entry key="app/src/main/res/layout/fragment_personalinfomation.xml" value="0.2517837524414062" />
+        <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.32868217054263565" />
+        <entry key="app/src/main/res/layout/fragment_register.xml" value="0.337469482421875" />
+        <entry key="app/src/main/res/layout/fragment_report.xml" value="0.28229166666666666" />
+        <entry key="app/src/main/res/layout/fragment_report_detail.xml" value="0.36527777777777776" />
+        <entry key="app/src/main/res/layout/fragment_report_record.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/fragment_rules.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_send_report.xml" value="0.28229166666666666" />
+        <entry key="app/src/main/res/layout/fragment_vaccination.xml" value="0.13697916666666668" />
+        <entry key="app/src/main/res/layout/fragment_vaccination_detail.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/fragment_vaccination_profile.xml" value="0.28229166666666666" />
+        <entry key="app/src/main/res/layout/fragment_vaccination_register.xml" value="0.23867753623188406" />
+        <entry key="app/src/main/res/layout/fragment_vaccine_detail.xml" value="0.36527777777777776" />
+        <entry key="app/src/main/res/layout/fragment_vaccine_registration.xml" value="0.11854103343465046" />
+        <entry key="app/src/main/res/layout/fragment_vaccine_registration_detail.xml" value="0.1768661735036987" />
+        <entry key="app/src/main/res/layout/fragment_vaccine_registration_record.xml" value="0.28229166666666666" />
+        <entry key="app/src/main/res/layout/home_fragment.xml" value="0.1109375" />
+        <entry key="app/src/main/res/layout/item_health_declaration.xml" value="0.375" />
+        <entry key="app/src/main/res/layout/item_report.xml" value="0.28229166666666666" />
+        <entry key="app/src/main/res/layout/item_text.xml" value="0.28229166666666666" />
+        <entry key="app/src/main/res/layout/item_vaccination.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/item_vaccine.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/item_vaccine_registration.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/loading_state.xml" value="0.1109375" />
+        <entry key="app/src/main/res/layout/login_fragment.xml" value="0.32422027587890634" />
+        <entry key="app/src/main/res/layout/otp_verification_dialog.xml" value="0.2913116455078125" />
+        <entry key="app/src/main/res/layout/personal_information_fragment.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/profile_fragment.xml" value="0.19610507246376813" />
+        <entry key="app/src/main/res/layout/register_fragment.xml" value="0.2627105712890625" />
+        <entry key="app/src/main/res/layout/repo_fragment.xml" value="0.1109375" />
+        <entry key="app/src/main/res/layout/repo_item.xml" value="0.1109375" />
+        <entry key="app/src/main/res/layout/search_fragment.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/splash_fragment.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/test.xml" value="0.23867753623188406" />
+        <entry key="app/src/main/res/layout/toast_custom.xml" value="0.2235689427070467" />
+        <entry key="app/src/main/res/layout/toast_layout.xml" value="0.313226318359375" />
+        <entry key="app/src/main/res/layout/user_fragment.xml" value="0.1" />
+        <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.24375" />
+        <entry key="app/src/main/res/menu/bottom_navigation_menu.xml" value="0.28229166666666666" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.1" />
+      </ProjectState>
+    </option>
+  </component>
+</project>

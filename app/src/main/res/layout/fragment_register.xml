@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="registerViewModel"
+            type="com.android.covidsafe.ui.auth.register.RegisterViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/gradient_background_blue"
+        android:orientation="vertical"
+        tools:context=".ui.auth.register.RegisterFragment">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_image_extra_large"
+            android:layout_marginTop="@dimen/margin_large"
+            android:layout_marginBottom="@dimen/margin_large"
+            android:src="@drawable/covid_safe_logo" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/login_radius_background">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_large"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/register_title"
+                    android:textAppearance="?attr/textAppearanceDisplaySmall" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    android:layout_marginBottom="5dp"
+                    android:text="@string/register_phone_number"
+                    android:textAppearance="?attr/textAppearanceTitleMedium" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/il_register_phone_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:boxCornerRadiusBottomEnd="@dimen/radius_default"
+                    app:boxCornerRadiusBottomStart="@dimen/radius_default"
+                    app:boxCornerRadiusTopEnd="@dimen/radius_default"
+                    app:boxCornerRadiusTopStart="@dimen/radius_default"
+                    app:endIconMode="clear_text"
+                    app:hintEnabled="false">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/it_register_phone_number"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/hint_enter_content"
+                        android:inputType="phone"
+                        android:maxLength="10"
+                        android:text="@={registerViewModel.phoneNumber}"
+                        android:textAppearance="?attr/textAppearanceBodyMedium" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    android:layout_marginBottom="5dp"
+                    android:text="@string/register_password"
+                    android:textAppearance="?attr/textAppearanceTitleMedium" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/il_register_password_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:boxCornerRadiusBottomEnd="@dimen/radius_default"
+                    app:boxCornerRadiusBottomStart="@dimen/radius_default"
+                    app:boxCornerRadiusTopEnd="@dimen/radius_default"
+                    app:boxCornerRadiusTopStart="@dimen/radius_default"
+                    app:endIconMode="password_toggle"
+                    app:hintEnabled="false">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/it_register_password_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/hint_enter_password"
+                        android:inputType="textPassword"
+                        android:maxLength="20"
+                        android:text="@={registerViewModel.password}"
+                        android:textAppearance="?attr/textAppearanceBodyMedium" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    android:layout_marginBottom="5dp"
+                    android:text="@string/register_password"
+                    android:textAppearance="?attr/textAppearanceTitleMedium" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/il_register_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:boxCornerRadiusBottomEnd="@dimen/radius_default"
+                    app:boxCornerRadiusBottomStart="@dimen/radius_default"
+                    app:boxCornerRadiusTopEnd="@dimen/radius_default"
+                    app:boxCornerRadiusTopStart="@dimen/radius_default"
+                    app:endIconMode="password_toggle"
+                    app:hintEnabled="false">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/it_register_password"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/hint_enter_password"
+                        android:inputType="textPassword"
+                        android:maxLength="20"
+                        android:text="@={registerViewModel.password}"
+                        android:textAppearance="?attr/textAppearanceBodyMedium" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    android:text="@string/register_terms_and_conditions"
+                    android:textAppearance="?attr/textAppearanceBodyMedium" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_register_register"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_button_default"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="@dimen/margin_large"
+                android:layout_marginEnd="@dimen/margin_large"
+                android:layout_marginBottom="@dimen/margin_large"
+                android:text="@string/button_register"
+                android:textAppearance="?attr/textAppearanceButton" />
+        </RelativeLayout>
+    </LinearLayout>
+</layout>
+

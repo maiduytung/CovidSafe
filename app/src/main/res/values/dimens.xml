@@ -1,0 +1,45 @@
+<resources>
+
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="nav_header_vertical_spacing">8dp</dimen>
+    <dimen name="nav_header_height">176dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+
+    <dimen name="size_statusbar">24dp</dimen>
+
+    <dimen name="size_image_small">32dp</dimen>
+    <dimen name="size_image_medium">48dp</dimen>
+    <dimen name="size_image_large">64dp</dimen>
+    <dimen name="size_image_extra_large">96dp</dimen>
+
+    <dimen name="size_icon_small">32dp</dimen>
+    <dimen name="size_icon_medium">64dp</dimen>
+    <dimen name="size_icon_large">128dp</dimen>
+
+    <dimen name="margin_small">8dp</dimen>
+    <dimen name="margin_medium">16dp</dimen>
+    <dimen name="margin_large">32dp</dimen>
+    <dimen name="margin_extra_large">48dp</dimen>
+
+    <dimen name="padding_small">8dp</dimen>
+    <dimen name="padding_medium">16dp</dimen>
+    <dimen name="padding_large">32dp</dimen>
+    <dimen name="padding_extra_large">48dp</dimen>
+
+    <dimen name="radius_default">8dp</dimen>
+    <dimen name="radius_medium">16dp</dimen>
+    <dimen name="radius_large">32dp</dimen>
+
+    <dimen name="elevation_default">10dp</dimen>
+    <dimen name="elevation_focus">10dp</dimen>
+
+    <dimen name="height_button_default">64dp</dimen>
+
+    <dimen name="height_title_small">56dp</dimen>
+    <dimen name="height_title_default">64dp</dimen>
+    <dimen name="height_title_medium">80dp</dimen>
+
+    <dimen name="dialog_min_width">352dp</dimen>
+
+</resources>

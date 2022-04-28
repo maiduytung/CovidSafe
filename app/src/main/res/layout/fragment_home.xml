@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="animation"
+            type="Boolean" />
+
+        <variable
+            name="inject"
+            type="Integer" />
+
+        <variable
+            name="certification"
+            type="com.android.covidsafe.vo.Certification" />
+
+        <variable
+            name="homeViewModel"
+            type="com.android.covidsafe.ui.main.home.HomeViewModel" />
+
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".ui.main.home.HomeFragment">
+
+        <LinearLayout
+            android:id="@+id/ll_home_qrcode"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:background="#00b850"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:text="Mã số định danh cá nhân"
+                android:textAllCaps="true"
+                android:textAppearance="?attr/textAppearanceTitleLarge"
+                android:textColor="@android:color/white" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                base64Image="@{homeViewModel.profileResource.data.qrCode}"
+                android:layout_width="240dp"
+                android:layout_height="240dp"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/margin_large"
+                android:background="@android:color/white"
+                app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize10Percent"
+                tools:src="@tools:sample/avatars" />
+
+        </LinearLayout>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cv_home_certification"
+            style="?attr/materialCardViewElevatedStyle"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:layout_margin="@dimen/margin_large"
+            android:clickable="true"
+            app:layout_anchor="@id/ll_home_qrcode"
+            app:layout_anchorGravity="bottom|left"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/white"
+                android:gravity="center"
+                android:paddingStart="@dimen/padding_medium"
+                android:paddingEnd="@dimen/padding_medium">
+
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_margin="@dimen/margin_small"
+                    android:layout_weight="1"
+                    android:src="@{certification.countTheDose == 0 ? @drawable/ic_broken_shield : @drawable/ic_protection}"
+                    tools:src="@drawable/ic_protection" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="4dp"
+                    android:layout_weight="4"
+                    android:text="@string/home_no_information"
+                    android:textAppearance="?attr/textAppearanceTitleMedium"
+                    android:visibility="@{certification == null ? View.VISIBLE : View.GONE}" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="4dp"
+                    android:layout_weight="4"
+                    android:text="@{certification.countTheDose == 0 ? @string/home_no_injected : @string/home_injected_dose(Integer.toString(certification.countTheDose))}"
+                    android:textAppearance="?attr/textAppearanceTitleMedium"
+                    android:textColor="@{certification.countTheDose == 0 ? @android:color/darker_gray : @color/green_500}"
+                    android:visibility="@{certification != null ? View.VISIBLE : View.GONE}"
+                    tools:textColor="#4CAF50" />
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="450dp">
+
+            <TableRow android:layout_margin="@dimen/margin_small">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cv_home_health_declaration"
+                    style="?attr/materialCardViewElevatedStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="160dp"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:foreground="?attr/selectableItemBackground">
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/gradient_background_orange_light">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:adjustViewBounds="true"
+                            android:alpha="0.1"
+                            android:src="@drawable/btn_declaration"
+                            app:tint="#FFFFFF" />
+
+                        <TextView
+                            android:id="@+id/tv_home_health_declaration_title"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="24dp"
+                            android:gravity="center"
+                            android:text="@string/home_health_declaration"
+                            android:textAppearance="?attr/textAppearanceTitleMedium"
+                            android:textColor="@android:color/white"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/tv_home_health_declaration_title"
+                            android:layout_marginTop="@dimen/margin_small"
+                            android:gravity="center"
+                            android:text="@string/home_vaccine_registration_detail"
+                            android:textAppearance="?attr/textAppearanceBodyMedium"
+                            android:textColor="@android:color/white" />
+
+                    </RelativeLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cv_home_vaccine_registration"
+                    style="?attr/materialCardViewElevatedStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="160dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:foreground="?attr/selectableItemBackground">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/gradient_background_blue">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentEnd="true"
+                            android:adjustViewBounds="true"
+                            android:alpha="0.1"
+                            android:src="@drawable/btn_registration"
+                            app:tint="#FFFFFF" />
+
+                        <TextView
+                            android:id="@+id/tv_home_vaccine_registration_title"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="24dp"
+                            android:gravity="center"
+                            android:text="@string/home_vaccine_registration"
+                            android:textAppearance="?attr/textAppearanceTitleMedium"
+                            android:textColor="@android:color/white"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/tv_home_vaccine_registration_title"
+                            android:layout_marginTop="@dimen/margin_small"
+                            android:gravity="center"
+                            android:text="@string/home_vaccine_registration_detail"
+                            android:textAppearance="?attr/textAppearanceBodyMedium"
+                            android:textColor="@android:color/white" />
+
+                    </RelativeLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cv_home_report"
+                    style="?attr/materialCardViewElevatedStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="160dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:foreground="?attr/selectableItemBackground">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/gradient_background_cyan">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentEnd="true"
+                            android:adjustViewBounds="true"
+                            android:alpha="0.1"
+                            android:src="@drawable/btn_certificate"
+                            app:tint="#FFFFFF" />
+
+                        <TextView
+                            android:id="@+id/tv_home_report"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="24dp"
+                            android:gravity="center"
+                            android:text="@string/home_report"
+                            android:textAppearance="?attr/textAppearanceTitleMedium"
+                            android:textColor="@android:color/white"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/tv_home_report"
+                            android:layout_marginTop="@dimen/margin_small"
+                            android:gravity="center"
+                            android:text="@string/home_report_detail"
+                            android:textAppearance="?attr/textAppearanceBodyMedium"
+                            android:textColor="@android:color/white" />
+
+                    </RelativeLayout>
+                </com.google.android.material.card.MaterialCardView>
+            </TableRow>
+        </TableLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+</layout>

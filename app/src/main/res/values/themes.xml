@@ -1,0 +1,22 @@
+<resources>
+
+    <style name="Theme.CovidSafe" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
+
+    <style name="SplashTheme" parent="Theme.Material3.Light.NoActionBar">
+        <item name="android:windowBackground">@drawable/splash_background</item>
+    </style>
+
+    <style name="Theme.CovidSafe.AppBarOverlay" parent="ThemeOverlay.Material3.ActionBar" />
+
+    <style name="Theme.CovidSafe.PopupOverlay" parent="ThemeOverlay.Material3.Light" />
+
+    <style name="ShapeAppearanceOverlay.App.CornerSize50Percent" parent="">
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay.App.CornerSize10Percent" parent="">
+        <item name="cornerSize">10%</item>
+    </style>
+</resources>

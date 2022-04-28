@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="addReportViewModel"
+            type="com.android.covidsafe.ui.main.home.report.add.AddReportViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/padding_small">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cv_add_report_content"
+            style="?attr/materialCardViewElevatedStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="?attr/actionBarSize"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white"
+                android:orientation="vertical"
+                android:padding="@dimen/margin_small">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/il_add_report_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:boxBackgroundColor="@android:color/white"
+                    app:boxCornerRadiusBottomEnd="@dimen/radius_default"
+                    app:boxCornerRadiusBottomStart="@dimen/radius_default"
+                    app:boxCornerRadiusTopEnd="@dimen/radius_default"
+                    app:boxCornerRadiusTopStart="@dimen/radius_default"
+                    app:boxStrokeWidth="0dp"
+                    app:hintEnabled="false">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/it_add_report_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:hint="@string/hint_enter_report_content"
+                        android:singleLine="true"
+                        android:text="@={addReportViewModel.reportRequest.report}"
+                        android:textAppearance="?attr/textAppearanceBodyLarge" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            style="?attr/materialCardViewElevatedStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_medium"
+            app:layout_constraintTop_toBottomOf="@+id/cv_add_report_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white"
+                android:orientation="vertical"
+                android:padding="@dimen/margin_small">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:text="@string/add_report_location"
+                    android:textAppearance="?attr/textAppearanceTitleMedium" />
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/il_add_report_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    app:boxCornerRadiusBottomEnd="@dimen/radius_default"
+                    app:boxCornerRadiusBottomStart="@dimen/radius_default"
+                    app:boxCornerRadiusTopEnd="@dimen/radius_default"
+                    app:boxCornerRadiusTopStart="@dimen/radius_default"
+                    app:hintEnabled="false">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/it_add_report_address"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/hint_location_report"
+                        android:singleLine="true"
+                        android:text="@={addReportViewModel.reportRequest.address}"
+                        android:textAppearance="?attr/textAppearanceBodyMedium" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/il_add_report_province"
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    app:boxCornerRadiusBottomEnd="@dimen/radius_default"
+                    app:boxCornerRadiusBottomStart="@dimen/radius_default"
+                    app:boxCornerRadiusTopEnd="@dimen/radius_default"
+                    app:boxCornerRadiusTopStart="@dimen/radius_default"
+                    app:hintEnabled="false">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/at_add_report_province"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/add_report_province"
+                        android:inputType="none"
+                        android:text="@{addReportViewModel.province}"
+                        android:textAppearance="?attr/textAppearanceBodyMedium"
+                        app:subnationalAdapter="@{addReportViewModel.provinceList}" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/il_add_report_district"
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    app:boxCornerRadiusBottomEnd="@dimen/radius_default"
+                    app:boxCornerRadiusBottomStart="@dimen/radius_default"
+                    app:boxCornerRadiusTopEnd="@dimen/radius_default"
+                    app:boxCornerRadiusTopStart="@dimen/radius_default"
+                    app:hintEnabled="false">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/at_add_report_district"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/add_report_district"
+                        android:inputType="none"
+                        android:text="@{addReportViewModel.district}"
+                        android:textAppearance="?attr/textAppearanceBodyMedium"
+                        app:subnationalAdapter="@{addReportViewModel.districtList}" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/il_add_report_ward"
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    app:boxCornerRadiusBottomEnd="@dimen/radius_default"
+                    app:boxCornerRadiusBottomStart="@dimen/radius_default"
+                    app:boxCornerRadiusTopEnd="@dimen/radius_default"
+                    app:boxCornerRadiusTopStart="@dimen/radius_default"
+                    app:hintEnabled="false">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/at_add_report_ward"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/add_report_ward"
+                        android:inputType="none"
+                        android:text="@{addReportViewModel.ward}"
+                        android:textAppearance="?attr/textAppearanceBodyMedium"
+                        app:subnationalAdapter="@{addReportViewModel.wardList}" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <Button
+            android:id="@+id/btn_add_report_send"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_margin="@dimen/margin_small"
+            android:text="@string/button_add_report"
+            android:textAppearance="?attr/textAppearanceButton"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

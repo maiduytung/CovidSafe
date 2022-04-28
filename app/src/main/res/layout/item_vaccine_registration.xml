@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="vaccineRegistration"
+            type="com.android.covidsafe.vo.VaccineRegistration" />
+
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        style="?attr/materialCardViewElevatedStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_small">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/gradient_background_light_blue">
+
+            <com.google.android.material.card.MaterialCardView
+                style="?attr/materialCardViewElevatedStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_medium"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <LinearLayout
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:background="@android:color/white"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{Integer.toString(vaccineRegistration.createdDate.date)}"
+                        android:textAppearance="?attr/textAppearanceHeadline4"
+                        android:textColor="#03A9F4"
+                        tools:text="13" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{@string/item_vaccine_registration_month_year(Integer.toString(vaccineRegistration.createdDate.month + 1), Integer.toString(vaccineRegistration.createdDate.year + 1900))}"
+                        android:textAppearance="?attr/textAppearanceTitleSmall"
+                        android:textColor="#81D4FA"
+                        tools:text="04/2022" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/ic_people"
+                    android:drawablePadding="@dimen/padding_medium"
+                    android:drawableTint="@android:color/white"
+                    android:text="@{vaccineRegistration.fullName}"
+                    android:textAllCaps="true"
+                    android:textAppearance="?attr/textAppearanceTitleMedium"
+                    android:textColor="@android:color/white"
+                    tools:text="@tools:sample/full_names" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:drawableStart="@drawable/ic_time"
+                    android:drawablePadding="@dimen/padding_medium"
+                    android:drawableTint="@android:color/white"
+                    android:text="@{@string/item_vaccine_registration_hours_minutes_seconds(vaccineRegistration.createdDate.hours, vaccineRegistration.createdDate.minutes, vaccineRegistration.createdDate.seconds)}"
+                    android:textAppearance="?attr/textAppearanceBody1"
+                    android:textColor="@android:color/white"
+                    tools:text="@tools:sample/date/hhmmss" />
+
+                <com.google.android.material.card.MaterialCardView
+                    style="?attr/materialCardViewElevatedStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:visibility="@{vaccineRegistration.status == 0 ? View.VISIBLE : View.GONE}"
+                    app:cardBackgroundColor="@color/yellow_200"
+                    app:cardCornerRadius="12dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="12dp"
+                        android:paddingTop="4dp"
+                        android:paddingEnd="12dp"
+                        android:paddingBottom="4dp"
+                        android:text="@string/status_processing"
+                        android:textAppearance="?attr/textAppearanceBodyMedium"
+                        android:textColor="@color/yellow_700" />
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    style="?attr/materialCardViewElevatedStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:visibility="@{vaccineRegistration.status == 1 ? View.VISIBLE : View.GONE}"
+                    app:cardBackgroundColor="@color/blue_200"
+                    app:cardCornerRadius="12dp"
+                    tools:visibility="gone">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="12dp"
+                        android:paddingTop="4dp"
+                        android:paddingEnd="12dp"
+                        android:paddingBottom="4dp"
+                        android:text="@string/status_registration"
+                        android:textAppearance="?attr/textAppearanceBodyMedium"
+                        android:textColor="@color/blue_500" />
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    style="?attr/materialCardViewElevatedStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:visibility="@{vaccineRegistration.status == 2 ? View.VISIBLE : View.GONE}"
+                    app:cardBackgroundColor="@color/red_200"
+                    app:cardCornerRadius="12dp"
+                    tools:visibility="gone">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="12dp"
+                        android:paddingTop="4dp"
+                        android:paddingEnd="12dp"
+                        android:paddingBottom="4dp"
+                        android:text="@string/status_refuse"
+                        android:textAppearance="?attr/textAppearanceBodyMedium"
+                        android:textColor="@color/red_500" />
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    style="?attr/materialCardViewElevatedStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:visibility="@{vaccineRegistration.status == 3 ? View.VISIBLE : View.GONE}"
+                    app:cardBackgroundColor="@color/green_200"
+                    app:cardCornerRadius="12dp"
+                    tools:visibility="gone">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="12dp"
+                        android:paddingTop="4dp"
+                        android:paddingEnd="12dp"
+                        android:paddingBottom="4dp"
+                        android:text="@string/status_finish"
+                        android:textAppearance="?attr/textAppearanceBodyMedium"
+                        android:textColor="@color/green_500" />
+
+                </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+</layout>

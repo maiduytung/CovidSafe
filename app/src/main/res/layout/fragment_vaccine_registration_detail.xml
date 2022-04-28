@@ -1,0 +1,1061 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="vaccineRegistration"
+            type="com.android.covidsafe.vo.VaccineRegistration" />
+
+        <variable
+            name="vaccineRegistrationDetailViewModel"
+            type="com.android.covidsafe.ui.main.home.vaccineregistration.detail.VaccineRegistrationDetailViewModel" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:layout_marginBottom="8dp"
+        android:padding="8dp"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                base64Image="@{vaccineRegistration.qrCode}"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="@dimen/margin_medium"
+                android:background="@android:color/white"
+                app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize10Percent"
+                tools:src="@tools:sample/avatars" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/vaccine_registration_detail_qrcode"
+                android:textAppearance="?attr/textAppearanceBodyMedium" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="@dimen/margin_small"
+                android:text="@{@string/vaccine_registration_detail_created_time(vaccineRegistration.createdDate.date, vaccineRegistration.createdDate.month + 1 , vaccineRegistration.createdDate.year + 1900, vaccineRegistration.createdDate.hours, vaccineRegistration.createdDate.minutes, vaccineRegistration.createdDate.seconds)}"
+                android:textAppearance="?attr/textAppearanceBodyMedium"
+                tools:text="@tools:sample/date/ddmmyy" />
+
+            <com.google.android.material.card.MaterialCardView
+                style="?attr/materialCardViewElevatedStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/white"
+                    android:orientation="vertical"
+                    android:padding="@dimen/padding_small">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:text="@string/vaccine_registration_detail_full_name"
+                        android:textAppearance="?attr/textAppearanceTitleMedium" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/il_vaccine_registration_detail_full_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:boxCornerRadiusBottomEnd="@dimen/radius_default"
+                        app:boxCornerRadiusBottomStart="@dimen/radius_default"
+                        app:boxCornerRadiusTopEnd="@dimen/radius_default"
+                        app:boxCornerRadiusTopStart="@dimen/radius_default"
+                        app:hintEnabled="false">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/it_vaccine_registration_detail_full_name"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:editable="false"
+                            android:hint="@string/hint_empty"
+                            android:text="@{vaccineRegistration.fullName}"
+                            android:textAppearance="?attr/textAppearanceBodyMedium" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_medium"
+                        android:layout_marginBottom="5dp"
+                        android:text="@string/vaccine_registration_detail_date_of_birth"
+                        android:textAppearance="?attr/textAppearanceTitleMedium" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/il_vaccine_registration_detail_date_of_birth"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:boxCornerRadiusBottomEnd="@dimen/radius_default"
+                        app:boxCornerRadiusBottomStart="@dimen/radius_default"
+                        app:boxCornerRadiusTopEnd="@dimen/radius_default"
+                        app:boxCornerRadiusTopStart="@dimen/radius_default"
+                        app:hintEnabled="false">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/it_vaccine_registration_detail_date_of_birth"
+                            date="@{vaccineRegistration.dateOfBirth}"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:editable="false"
+                            android:enabled="true"
+                            android:hint="@string/hint_date_month_year"
+                            android:textAppearance="?attr/textAppearanceBodyMedium" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_medium"
+                        android:text="@string/vaccine_registration_detail_gender"
+                        android:textAppearance="?attr/textAppearanceTitleMedium" />
+
+                    <RadioGroup
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="@{vaccineRegistration.gender}"
+                            android:clickable="false"
+                            android:text="@string/vaccine_registration_detail_male" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="64dp"
+                            android:checked="@{!vaccineRegistration.gender}"
+                            android:clickable="false"
+                            android:text="@string/vaccine_registration_detail_female" />
+                    </RadioGroup>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:text="@string/vaccine_registration_detail_identification"
+                        android:textAppearance="?attr/textAppearanceTitleMedium" />
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/il_vaccine_registration_detail_identification"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:boxCornerRadiusBottomEnd="@dimen/radius_default"
+                        app:boxCornerRadiusBottomStart="@dimen/radius_default"
+                        app:boxCornerRadiusTopEnd="@dimen/radius_default"
+                        app:boxCornerRadiusTopStart="@dimen/radius_default"
+                        app:hintEnabled="false">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/it_vaccine_registration_detail_identification"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:editable="false"
+                            android:hint="@string/hint_empty"
+                            android:singleLine="true"
+                            android:text="@{vaccineRegistration.identification}"
+                            android:textAppearance="?attr/textAppearanceBodyMedium" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_medium"
+                        android:layout_marginBottom="5dp"
+                        android:text="@string/vaccine_registration_detail_health_insurance_number"
+                        android:textAppearance="?attr/textAppearanceTitleMedium" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/il_vaccine_registration_detail_health_insurance_number"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:boxCornerRadiusBottomEnd="@dimen/radius_default"
+                        app:boxCornerRadiusBottomStart="@dimen/radius_default"
+                        app:boxCornerRadiusTopEnd="@dimen/radius_default"
+                        app:boxCornerRadiusTopStart="@dimen/radius_default"
+                        app:hintEnabled="false">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/it_vaccine_registration_detail_health_insurance_number"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:editable="false"
+                            android:hint="@string/hint_empty"
+                            android:singleLine="true"
+                            android:text="@{vaccineRegistration.healthInsuranceNumber}"
+                            android:textAppearance="?attr/textAppearanceBodyMedium" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_medium"
+                        android:layout_marginBottom="5dp"
+                        android:text="@string/vaccine_registration_detail_preferred_vaccination_date"
+                        android:textAppearance="?attr/textAppearanceTitleMedium" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/il_vaccine_registration_detail_preferred_vaccination_date"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:boxCornerRadiusBottomEnd="@dimen/radius_default"
+                        app:boxCornerRadiusBottomStart="@dimen/radius_default"
+                        app:boxCornerRadiusTopEnd="@dimen/radius_default"
+                        app:boxCornerRadiusTopStart="@dimen/radius_default"
+                        app:hintEnabled="false">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/it_vaccine_registration_detail_preferred_vaccination_date"
+                            date="@{vaccineRegistration.preferredVaccinationDate}"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:editable="false"
+                            android:enabled="true"
+                            android:hint="@string/hint_date_month_year"
+                            android:textAppearance="?attr/textAppearanceBodyMedium" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_medium"
+                        android:layout_marginBottom="5dp"
+                        android:text="@string/vaccine_registration_detail_occupation"
+                        android:textAppearance="?attr/textAppearanceTitleMedium" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/il_vaccine_registration_detail_occupation"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:boxCornerRadiusBottomEnd="@dimen/radius_default"
+                        app:boxCornerRadiusBottomStart="@dimen/radius_default"
+                        app:boxCornerRadiusTopEnd="@dimen/radius_default"
+                        app:boxCornerRadiusTopStart="@dimen/radius_default"
+                        app:hintEnabled="false">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/it_vaccine_registration_detail_occupation"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:editable="false"
+                            android:hint="@string/hint_empty"
+                            android:singleLine="true"
+                            android:text="@{vaccineRegistration.occupation}"
+                            android:textAppearance="?attr/textAppearanceBodyMedium" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_medium"
+                        android:layout_marginBottom="5dp"
+                        android:text="@string/vaccine_registration_detail_priority_group"
+                        android:textAppearance="?attr/textAppearanceTitleMedium" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/il_vaccine_registration_detail_priority_group"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:boxCornerRadiusBottomEnd="@dimen/radius_default"
+                        app:boxCornerRadiusBottomStart="@dimen/radius_default"
+                        app:boxCornerRadiusTopEnd="@dimen/radius_default"
+                        app:boxCornerRadiusTopStart="@dimen/radius_default"
+                        app:hintEnabled="false">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/at_vaccine_registration_detail_priority_group"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:editable="false"
+                            android:hint="@string/hint_empty"
+                            android:text="@{vaccineRegistrationDetailViewModel.priority}"
+                            android:textAppearance="?attr/textAppearanceBodyMedium" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                style="?attr/materialCardViewElevatedStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_small">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/white"
+                    android:orientation="vertical"
+                    android:padding="@dimen/padding_small">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:text="@string/vaccine_registration_detail_province"
+                        android:textAppearance="?attr/textAppearanceTitleMedium" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/il_vaccine_registration_detail_province"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:boxCornerRadiusBottomEnd="@dimen/radius_default"
+                        app:boxCornerRadiusBottomStart="@dimen/radius_default"
+                        app:boxCornerRadiusTopEnd="@dimen/radius_default"
+                        app:boxCornerRadiusTopStart="@dimen/radius_default"
+                        app:hintEnabled="false">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/at_vaccine_registration_detail_province"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:editable="false"
+                            android:hint="@string/hint_empty"
+                            android:text="@{vaccineRegistrationDetailViewModel.province}"
+                            android:textAppearance="?attr/textAppearanceBodyMedium" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_medium"
+                        android:layout_marginBottom="5dp"
+                        android:text="@string/vaccine_registration_detail_district"
+                        android:textAppearance="?attr/textAppearanceTitleMedium" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/il_vaccine_registration_detail_district"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:boxCornerRadiusBottomEnd="@dimen/radius_default"
+                        app:boxCornerRadiusBottomStart="@dimen/radius_default"
+                        app:boxCornerRadiusTopEnd="@dimen/radius_default"
+                        app:boxCornerRadiusTopStart="@dimen/radius_default"
+                        app:hintEnabled="false">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/at_vaccine_registration_detail_district"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:editable="false"
+                            android:hint="@string/hint_empty"
+                            android:text="@{vaccineRegistrationDetailViewModel.district}"
+                            android:textAppearance="?attr/textAppearanceBodyMedium" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_medium"
+                        android:layout_marginBottom="5dp"
+                        android:text="@string/vaccine_registration_detail_ward"
+                        android:textAppearance="?attr/textAppearanceTitleMedium" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/il_vaccine_registration_detail_ward"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:boxCornerRadiusBottomEnd="@dimen/radius_default"
+                        app:boxCornerRadiusBottomStart="@dimen/radius_default"
+                        app:boxCornerRadiusTopEnd="@dimen/radius_default"
+                        app:boxCornerRadiusTopStart="@dimen/radius_default"
+                        app:hintEnabled="false">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/at_vaccine_registration_detail_ward"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:editable="false"
+                            android:hint="@string/hint_empty"
+                            android:text="@{vaccineRegistrationDetailViewModel.ward}"
+                            android:textAppearance="?attr/textAppearanceBodyMedium" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_medium"
+                        android:layout_marginBottom="5dp"
+                        android:text="@string/vaccine_registration_detail_address"
+                        android:textAppearance="?attr/textAppearanceTitleMedium" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/il_vaccine_registration_detail_address"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:boxCornerRadiusBottomEnd="@dimen/radius_default"
+                        app:boxCornerRadiusBottomStart="@dimen/radius_default"
+                        app:boxCornerRadiusTopEnd="@dimen/radius_default"
+                        app:boxCornerRadiusTopStart="@dimen/radius_default"
+                        app:hintEnabled="false">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/it_vaccine_registration_detail_address"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:editable="false"
+                            android:hint="@string/hint_empty"
+                            android:singleLine="true"
+                            android:text="@{vaccineRegistration.address}"
+                            android:textAppearance="?attr/textAppearanceBodyMedium" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                style="?attr/materialCardViewElevatedStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_small">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/white"
+                    android:orientation="vertical"
+                    android:padding="@dimen/padding_small">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:text="@string/vaccine_registration_detail_ethnic"
+                        android:textAppearance="?attr/textAppearanceTitleMedium" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/il_vaccine_registration_detail_ethnic"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:boxCornerRadiusBottomEnd="@dimen/radius_default"
+                        app:boxCornerRadiusBottomStart="@dimen/radius_default"
+                        app:boxCornerRadiusTopEnd="@dimen/radius_default"
+                        app:boxCornerRadiusTopStart="@dimen/radius_default"
+                        app:hintEnabled="false">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/at_vaccine_registration_detail_ethnic"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:editable="false"
+                            android:hint="@string/hint_empty"
+                            android:text="@{vaccineRegistrationDetailViewModel.ethnic}"
+                            android:textAppearance="?attr/textAppearanceBodyMedium" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_medium"
+                        android:layout_marginBottom="5dp"
+                        android:text="@string/vaccine_registration_detail_nationality"
+                        android:textAppearance="?attr/textAppearanceTitleMedium" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/il_vaccine_registration_detail_nationality"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:boxCornerRadiusBottomEnd="@dimen/radius_default"
+                        app:boxCornerRadiusBottomStart="@dimen/radius_default"
+                        app:boxCornerRadiusTopEnd="@dimen/radius_default"
+                        app:boxCornerRadiusTopStart="@dimen/radius_default"
+                        app:hintEnabled="false">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/at_vaccine_registration_detail_nationality"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:editable="false"
+                            android:hint="@string/hint_empty"
+                            android:text="@{vaccineRegistrationDetailViewModel.nationality}"
+                            android:textAppearance="?attr/textAppearanceBodyMedium" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                style="?attr/materialCardViewElevatedStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_small">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/white"
+                    android:orientation="vertical"
+                    android:padding="@dimen/padding_small">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:text="@string/vaccine_registration_detail_medical_history"
+                        android:textAppearance="?attr/textAppearanceTitleMedium" />
+
+                    <TableLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:stretchColumns="0">
+
+                        <!-- Table Heading -->
+
+                        <TableRow android:background="?attr/colorPrimary">
+
+                            <View />
+
+                            <TextView
+                                android:layout_width="56dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="@string/vaccine_registration_detail_yes"
+                                android:textAppearance="?attr/textAppearanceTitleSmall"
+                                android:textColor="@android:color/white" />
+
+                            <TextView
+                                android:layout_width="56dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:text="@string/vaccine_registration_detail_no"
+                                android:textAppearance="?attr/textAppearanceTitleSmall"
+                                android:textColor="@android:color/white" />
+
+                            <TextView
+                                android:layout_width="56dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:text="@string/vaccine_registration_detail_undefined"
+                                android:textAppearance="?attr/textAppearanceTitleSmall"
+                                android:textColor="@android:color/white" />
+
+                        </TableRow>
+
+                        <!-- Table Data -->
+
+                        <TableRow>
+
+                            <TextView
+                                android:layout_width="192dp"
+                                android:layout_height="wrap_content"
+                                android:padding="10sp"
+                                android:text="@string/vaccine_registration_detail_anaphylaxis"
+                                android:textAppearance="?attr/textAppearanceBodyMedium" />
+
+                            <RadioGroup
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_span="3"
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
+                                <RadioButton
+                                    android:layout_width="31.5dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginEnd="24dp"
+                                    android:checked="@{vaccineRegistration.anaphylaxis == 1}"
+                                    android:clickable="false" />
+
+                                <RadioButton
+                                    android:layout_width="31.5dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginEnd="24dp"
+                                    android:checked="@{vaccineRegistration.anaphylaxis == 0}"
+                                    android:clickable="false" />/>
+
+                                <RadioButton
+                                    android:layout_width="31.5dp"
+                                    android:layout_height="wrap_content"
+                                    android:checked="@{vaccineRegistration.anaphylaxis == -1}"
+                                    android:clickable="false" />
+                            </RadioGroup>
+
+                        </TableRow>
+
+                        <TableRow>
+
+                            <TextView
+                                android:layout_width="192dp"
+                                android:layout_height="wrap_content"
+                                android:padding="10sp"
+                                android:text="@string/vaccine_registration_detail_covid19"
+                                android:textAppearance="?attr/textAppearanceBodyMedium" />
+
+                            <RadioGroup
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_span="3"
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
+                                <RadioButton
+                                    android:layout_width="31.5dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginEnd="24dp"
+                                    android:checked="@{vaccineRegistration.covid19 == 1}"
+                                    android:clickable="false" />
+
+                                <RadioButton
+                                    android:layout_width="31.5dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginEnd="24dp"
+                                    android:checked="@{vaccineRegistration.covid19 == 0}"
+                                    android:clickable="false" />
+
+                                <RadioButton
+                                    android:layout_width="31.5dp"
+                                    android:layout_height="wrap_content"
+                                    android:checked="@{vaccineRegistration.covid19 == -1}"
+                                    android:clickable="false" />
+                            </RadioGroup>
+
+                        </TableRow>
+
+                        <TableRow>
+
+                            <TextView
+                                android:layout_width="192dp"
+                                android:layout_height="wrap_content"
+                                android:padding="10sp"
+                                android:text="@string/vaccine_registration_detail_other_vaccinations"
+                                android:textAppearance="?attr/textAppearanceBodyMedium" />
+
+                            <RadioGroup
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_span="3"
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
+                                <RadioButton
+                                    android:layout_width="31.5dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginEnd="24dp"
+                                    android:checked="@{vaccineRegistration.otherVaccinations == 1}"
+                                    android:clickable="false" />
+
+                                <RadioButton
+                                    android:layout_width="31.5dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginEnd="24dp"
+                                    android:checked="@{vaccineRegistration.otherVaccinations == 0}"
+                                    android:clickable="false" />
+
+                                <RadioButton
+                                    android:layout_width="31.5dp"
+                                    android:layout_height="wrap_content"
+                                    android:checked="@{vaccineRegistration.otherVaccinations == -1}"
+                                    android:clickable="false" />
+                            </RadioGroup>
+
+                        </TableRow>
+
+                        <TableRow>
+
+                            <TextView
+                                android:layout_width="192dp"
+                                android:layout_height="wrap_content"
+                                android:padding="10sp"
+                                android:text="@string/vaccine_registration_detail_cancer"
+                                android:textAppearance="?attr/textAppearanceBodyMedium" />
+
+                            <RadioGroup
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_span="3"
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
+                                <RadioButton
+                                    android:layout_width="31.5dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginEnd="24dp"
+                                    android:checked="@{vaccineRegistration.cancer == 1}"
+                                    android:clickable="false" />
+
+                                <RadioButton
+                                    android:layout_width="31.5dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginEnd="24dp"
+                                    android:checked="@{vaccineRegistration.cancer == 0}"
+                                    android:clickable="false" />
+
+                                <RadioButton
+                                    android:layout_width="31.5dp"
+                                    android:layout_height="wrap_content"
+                                    android:checked="@{vaccineRegistration.cancer == -1}"
+                                    android:clickable="false" />
+                            </RadioGroup>
+
+                        </TableRow>
+
+                        <TableRow>
+
+                            <TextView
+                                android:layout_width="192dp"
+                                android:layout_height="wrap_content"
+                                android:padding="10sp"
+                                android:text="@string/vaccine_registration_detail_taking_medicine"
+                                android:textAppearance="?attr/textAppearanceBodyMedium" />
+
+                            <RadioGroup
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_span="3"
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
+                                <RadioButton
+                                    android:layout_width="31.5dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginEnd="24dp"
+                                    android:checked="@{vaccineRegistration.takingMedicine == 1}"
+                                    android:clickable="false" />
+
+                                <RadioButton
+                                    android:layout_width="31.5dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginEnd="24dp"
+                                    android:checked="@{vaccineRegistration.takingMedicine == 0}"
+                                    android:clickable="false" />
+
+                                <RadioButton
+                                    android:layout_width="31.5dp"
+                                    android:layout_height="wrap_content"
+                                    android:checked="@{vaccineRegistration.takingMedicine == -1}"
+                                    android:clickable="false" />
+                            </RadioGroup>
+
+                        </TableRow>
+
+                        <TableRow>
+
+                            <TextView
+                                android:layout_width="192dp"
+                                android:layout_height="wrap_content"
+                                android:padding="10sp"
+                                android:text="@string/vaccine_registration_detail_acute_illness"
+                                android:textAppearance="?attr/textAppearanceBodyMedium" />
+
+                            <RadioGroup
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_span="3"
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
+                                <RadioButton
+                                    android:layout_width="31.5dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginEnd="24dp"
+                                    android:checked="@{vaccineRegistration.acuteIllness == 1}"
+                                    android:clickable="false" />
+
+                                <RadioButton
+                                    android:layout_width="31.5dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginEnd="24dp"
+                                    android:checked="@{vaccineRegistration.acuteIllness == 0}"
+                                    android:clickable="false" />
+
+                                <RadioButton
+                                    android:layout_width="31.5dp"
+                                    android:layout_height="wrap_content"
+                                    android:checked="@{vaccineRegistration.acuteIllness == -1}"
+                                    android:clickable="false" />
+                            </RadioGroup>
+
+                        </TableRow>
+
+                        <TableRow>
+
+                            <TextView
+                                android:layout_width="192dp"
+                                android:layout_height="wrap_content"
+                                android:padding="10sp"
+                                android:text="@string/vaccine_registration_detail_chronic_progressive_disease"
+                                android:textAppearance="?attr/textAppearanceBodyMedium" />
+
+                            <RadioGroup
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_span="3"
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
+                                <RadioButton
+                                    android:layout_width="31.5dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginEnd="24dp"
+                                    android:checked="@{vaccineRegistration.chronicProgressiveDisease == 1}"
+                                    android:clickable="false" />
+
+                                <RadioButton
+                                    android:layout_width="31.5dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginEnd="24dp"
+                                    android:checked="@{vaccineRegistration.chronicProgressiveDisease == 0}"
+                                    android:clickable="false" />
+
+                                <RadioButton
+                                    android:layout_width="31.5dp"
+                                    android:layout_height="wrap_content"
+                                    android:checked="@{vaccineRegistration.chronicProgressiveDisease == -1}"
+                                    android:clickable="false" />
+                            </RadioGroup>
+
+                        </TableRow>
+
+                        <TableRow>
+
+                            <TextView
+                                android:layout_width="192dp"
+                                android:layout_height="wrap_content"
+                                android:padding="10sp"
+                                android:text="@string/vaccine_registration_detail_chronic_treated_well"
+                                android:textAppearance="?attr/textAppearanceBodyMedium" />
+
+                            <RadioGroup
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_span="3"
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
+                                <RadioButton
+                                    android:layout_width="31.5dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginEnd="24dp"
+                                    android:checked="@{vaccineRegistration.chronicTreatedWell == 1}"
+                                    android:clickable="false" />
+
+                                <RadioButton
+                                    android:layout_width="31.5dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginEnd="24dp"
+                                    android:checked="@{vaccineRegistration.chronicTreatedWell == 0}"
+                                    android:clickable="false" />
+
+                                <RadioButton
+                                    android:layout_width="31.5dp"
+                                    android:layout_height="wrap_content"
+                                    android:checked="@{vaccineRegistration.chronicTreatedWell == -1}"
+                                    android:clickable="false" />
+                            </RadioGroup>
+
+                        </TableRow>
+
+                        <TableRow>
+
+                            <TextView
+                                android:layout_width="192dp"
+                                android:layout_height="wrap_content"
+                                android:padding="10sp"
+                                android:text="@string/vaccine_registration_detail_pregnant"
+                                android:textAppearance="?attr/textAppearanceBodyMedium" />
+
+                            <RadioGroup
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_span="3"
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
+                                <RadioButton
+                                    android:layout_width="31.5dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginEnd="24dp"
+                                    android:checked="@{vaccineRegistration.pregnant == 1}"
+                                    android:clickable="false" />
+
+                                <RadioButton
+                                    android:layout_width="31.5dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginEnd="24dp"
+                                    android:checked="@{vaccineRegistration.pregnant == 0}"
+                                    android:clickable="false" />
+
+                                <RadioButton
+                                    android:layout_width="31.5dp"
+                                    android:layout_height="wrap_content"
+                                    android:checked="@{vaccineRegistration.pregnant == -1}"
+                                    android:clickable="false" />
+                            </RadioGroup>
+
+                        </TableRow>
+
+                        <TableRow>
+
+                            <TextView
+                                android:layout_width="192dp"
+                                android:layout_height="wrap_content"
+                                android:padding="10sp"
+                                android:text="@string/vaccine_registration_detail_more_than_65"
+                                android:textAppearance="?attr/textAppearanceBodyMedium" />
+
+                            <RadioGroup
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_span="3"
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
+                                <RadioButton
+                                    android:layout_width="31.5dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginEnd="24dp"
+                                    android:checked="@{vaccineRegistration.moreThan65 == 1}"
+                                    android:clickable="false" />
+
+                                <RadioButton
+                                    android:layout_width="31.5dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginEnd="24dp"
+                                    android:checked="@{vaccineRegistration.moreThan65 == 0}"
+                                    android:clickable="false" />
+
+                                <RadioButton
+                                    android:layout_width="31.5dp"
+                                    android:layout_height="wrap_content"
+                                    android:checked="@{vaccineRegistration.moreThan65 == -1}"
+                                    android:clickable="false" />
+                            </RadioGroup>
+
+
+                        </TableRow>
+
+                        <TableRow>
+
+                            <TextView
+                                android:layout_width="192dp"
+                                android:layout_height="wrap_content"
+                                android:padding="10sp"
+                                android:text="@string/vaccine_registration_detail_coagulation"
+                                android:textAppearance="?attr/textAppearanceBodyMedium" />
+
+                            <RadioGroup
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_span="3"
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
+                                <RadioButton
+                                    android:layout_width="31.5dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginEnd="24dp"
+                                    android:checked="@{vaccineRegistration.coagulation == 1}"
+                                    android:clickable="false" />
+
+                                <RadioButton
+                                    android:layout_width="31.5dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginEnd="24dp"
+                                    android:checked="@{vaccineRegistration.coagulation == 0}"
+                                    android:clickable="false" />
+
+                                <RadioButton
+                                    android:layout_width="31.5dp"
+                                    android:layout_height="wrap_content"
+                                    android:checked="@{vaccineRegistration.coagulation == -1}"
+                                    android:clickable="false" />
+                            </RadioGroup>
+
+                        </TableRow>
+
+                        <TableRow>
+
+                            <TextView
+                                android:layout_width="192dp"
+                                android:layout_height="wrap_content"
+                                android:padding="10sp"
+                                android:text="@string/vaccine_registration_detail_allergy"
+                                android:textAppearance="?attr/textAppearanceBodyMedium" />
+
+                            <RadioGroup
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_span="3"
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
+                                <RadioButton
+                                    android:layout_width="31.5dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginEnd="24dp"
+                                    android:checked="@{vaccineRegistration.allergy == 1}"
+                                    android:clickable="false" />
+
+                                <RadioButton
+                                    android:layout_width="31.5dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginEnd="24dp"
+                                    android:checked="@{vaccineRegistration.allergy == 0}"
+                                    android:clickable="false" />
+
+                                <RadioButton
+                                    android:layout_width="31.5dp"
+                                    android:layout_height="wrap_content"
+                                    android:checked="@{vaccineRegistration.allergy == -1}"
+                                    android:clickable="false" />
+                            </RadioGroup>
+                        </TableRow>
+                    </TableLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>

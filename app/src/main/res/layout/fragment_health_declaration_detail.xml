@@ -1,0 +1,717 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="healthDeclaration"
+            type="com.android.covidsafe.vo.HealthDeclaration" />
+
+        <variable
+            name="healthDeclarationDetailViewModel"
+            type="com.android.covidsafe.ui.main.home.healthdeclaration.detail.HealthDeclarationDetailViewModel" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:padding="@dimen/padding_small">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/health_declaration_title"
+                android:textAllCaps="true"
+                android:textAppearance="?attr/textAppearanceDisplaySmall" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/health_declaration_detail_advise"
+                android:textAppearance="?attr/textAppearanceTitleMedium"
+                android:textColor="@color/red_500" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                base64Image="@{healthDeclaration.qrCode}"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:layout_marginBottom="@dimen/margin_small"
+                android:background="@android:color/white"
+                app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize10Percent"
+                tools:src="@tools:sample/avatars" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/health_declaration_detail_qrcode"
+                android:textAppearance="?attr/textAppearanceBodyMedium" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="@dimen/margin_small"
+                android:text="@{@string/health_declaration_detail_created_time(healthDeclaration.createdDate.date, healthDeclaration.createdDate.month + 1 , healthDeclaration.createdDate.year + 1900, healthDeclaration.createdDate.hours, healthDeclaration.createdDate.minutes, healthDeclaration.createdDate.seconds)}"
+                android:textAppearance="?attr/textAppearanceBodyMedium"
+                tools:text="@tools:sample/date/ddmmyy" />
+
+            <com.google.android.material.card.MaterialCardView
+                style="?attr/materialCardViewElevatedStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/white"
+                    android:orientation="vertical"
+                    android:padding="@dimen/padding_small">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:text="@string/health_declaration_detail_full_name"
+                        android:textAppearance="?attr/textAppearanceTitleMedium" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/il_health_declaration_detail_full_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:boxCornerRadiusBottomEnd="@dimen/radius_default"
+                        app:boxCornerRadiusBottomStart="@dimen/radius_default"
+                        app:boxCornerRadiusTopEnd="@dimen/radius_default"
+                        app:boxCornerRadiusTopStart="@dimen/radius_default"
+                        app:hintEnabled="false">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/it_health_declaration_detail_full_name"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:editable="false"
+                            android:hint="@string/hint_empty"
+                            android:text="@{healthDeclaration.fullName}"
+                            android:textAppearance="?attr/textAppearanceBodyMedium" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_medium"
+                        android:layout_marginBottom="5dp"
+                        android:text="@string/health_declaration_detail_year_of_birth"
+                        android:textAppearance="?attr/textAppearanceTitleMedium" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/il_health_declaration_detail_year_of_birth"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:boxCornerRadiusBottomEnd="@dimen/radius_default"
+                        app:boxCornerRadiusBottomStart="@dimen/radius_default"
+                        app:boxCornerRadiusTopEnd="@dimen/radius_default"
+                        app:boxCornerRadiusTopStart="@dimen/radius_default"
+                        app:hintEnabled="false">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/it_health_declaration_detail_year_of_birth"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:editable="false"
+                            android:hint="@string/hint_empty"
+                            android:maxLength="4"
+                            android:singleLine="true"
+                            android:text="@{healthDeclaration.yearOfBirth}"
+                            android:textAppearance="?attr/textAppearanceBodyMedium" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_medium"
+                        android:layout_marginBottom="5dp"
+                        android:text="@string/health_declaration_detail_identification"
+                        android:textAppearance="?attr/textAppearanceTitleMedium" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/il_health_declaration_detail_identification"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:boxCornerRadiusBottomEnd="@dimen/radius_default"
+                        app:boxCornerRadiusBottomStart="@dimen/radius_default"
+                        app:boxCornerRadiusTopEnd="@dimen/radius_default"
+                        app:boxCornerRadiusTopStart="@dimen/radius_default"
+                        app:hintEnabled="false">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/it_health_declaration_detail_identification"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:editable="false"
+                            android:hint="@string/hint_empty"
+                            android:singleLine="true"
+                            android:text="@{healthDeclaration.identification}"
+                            android:textAppearance="?attr/textAppearanceBodyMedium" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_medium"
+                        android:text="@string/health_declaration_detail_gender"
+                        android:textAppearance="?attr/textAppearanceTitleMedium" />
+
+                    <RadioGroup
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="@{healthDeclaration.gender}"
+                            android:clickable="false"
+                            android:text="@string/health_declaration_detail_male" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="64dp"
+                            android:checked="@{!healthDeclaration.gender}"
+                            android:clickable="false"
+                            android:text="@string/health_declaration_detail_female" />
+                    </RadioGroup>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:text="@string/health_declaration_detail_nationality"
+                        android:textAppearance="?attr/textAppearanceTitleMedium" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/il_health_declaration_detail_nationality"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:boxCornerRadiusBottomEnd="@dimen/radius_default"
+                        app:boxCornerRadiusBottomStart="@dimen/radius_default"
+                        app:boxCornerRadiusTopEnd="@dimen/radius_default"
+                        app:boxCornerRadiusTopStart="@dimen/radius_default"
+                        app:hintEnabled="false">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/at_health_declaration_detail_nationality"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:editable="false"
+                            android:hint="@string/hint_empty"
+                            android:text="@{healthDeclarationDetailViewModel.nationality}"
+                            android:textAppearance="?attr/textAppearanceBodyMedium" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_medium"
+                        android:layout_marginBottom="5dp"
+                        android:text="@string/health_declaration_detail_province"
+                        android:textAppearance="?attr/textAppearanceTitleMedium" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/il_health_declaration_detail_province"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:boxCornerRadiusBottomEnd="@dimen/radius_default"
+                        app:boxCornerRadiusBottomStart="@dimen/radius_default"
+                        app:boxCornerRadiusTopEnd="@dimen/radius_default"
+                        app:boxCornerRadiusTopStart="@dimen/radius_default"
+                        app:hintEnabled="false">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/at_health_declaration_detail_province"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:editable="false"
+                            android:hint="@string/hint_empty"
+                            android:text="@{healthDeclarationDetailViewModel.province}"
+                            android:textAppearance="?attr/textAppearanceBodyMedium" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_medium"
+                        android:layout_marginBottom="5dp"
+                        android:text="@string/health_declaration_detail_district"
+                        android:textAppearance="?attr/textAppearanceTitleMedium" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/il_health_declaration_detail_district"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:boxCornerRadiusBottomEnd="@dimen/radius_default"
+                        app:boxCornerRadiusBottomStart="@dimen/radius_default"
+                        app:boxCornerRadiusTopEnd="@dimen/radius_default"
+                        app:boxCornerRadiusTopStart="@dimen/radius_default"
+                        app:hintEnabled="false">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/at_health_declaration_detail_district"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:editable="false"
+                            android:hint="@string/hint_empty"
+                            android:text="@{healthDeclarationDetailViewModel.district}"
+                            android:textAppearance="?attr/textAppearanceBodyMedium" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_medium"
+                        android:layout_marginBottom="5dp"
+                        android:text="@string/health_declaration_detail_ward"
+                        android:textAppearance="?attr/textAppearanceTitleMedium" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/il_health_declaration_detail_ward"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:boxCornerRadiusBottomEnd="@dimen/radius_default"
+                        app:boxCornerRadiusBottomStart="@dimen/radius_default"
+                        app:boxCornerRadiusTopEnd="@dimen/radius_default"
+                        app:boxCornerRadiusTopStart="@dimen/radius_default"
+                        app:hintEnabled="false">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/at_health_declaration_detail_ward"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:editable="false"
+                            android:hint="@string/hint_empty"
+                            android:text="@{healthDeclarationDetailViewModel.ward}"
+                            android:textAppearance="?attr/textAppearanceBodyMedium" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_medium"
+                        android:layout_marginBottom="5dp"
+                        android:text="@string/health_declaration_detail_address"
+                        android:textAppearance="?attr/textAppearanceTitleMedium" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/il_health_declaration_detail_address"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:boxCornerRadiusBottomEnd="@dimen/radius_default"
+                        app:boxCornerRadiusBottomStart="@dimen/radius_default"
+                        app:boxCornerRadiusTopEnd="@dimen/radius_default"
+                        app:boxCornerRadiusTopStart="@dimen/radius_default"
+                        app:hintEnabled="false">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/it_health_declaration_detail_address"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:editable="false"
+                            android:hint="@string/hint_empty"
+                            android:singleLine="true"
+                            android:text="@{healthDeclaration.address}"
+                            android:textAppearance="?attr/textAppearanceBodyMedium" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_medium"
+                        android:layout_marginBottom="5dp"
+                        android:text="@string/health_declaration_detail_phone_number"
+                        android:textAppearance="?attr/textAppearanceTitleMedium" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/il_health_declaration_detail_phone_number"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:boxCornerRadiusBottomEnd="@dimen/radius_default"
+                        app:boxCornerRadiusBottomStart="@dimen/radius_default"
+                        app:boxCornerRadiusTopEnd="@dimen/radius_default"
+                        app:boxCornerRadiusTopStart="@dimen/radius_default"
+                        app:hintEnabled="false">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/it_health_declaration_detail_phone_number"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:editable="false"
+                            android:hint="@string/hint_empty"
+                            android:text="@{healthDeclaration.phoneNumber}"
+                            android:textAppearance="?attr/textAppearanceBodyMedium" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_medium"
+                        android:layout_marginBottom="5dp"
+                        android:text="@string/health_declaration_detail_email"
+                        android:textAppearance="?attr/textAppearanceTitleMedium" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/il_health_declaration_detail_email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:boxCornerRadiusBottomEnd="@dimen/radius_default"
+                        app:boxCornerRadiusBottomStart="@dimen/radius_default"
+                        app:boxCornerRadiusTopEnd="@dimen/radius_default"
+                        app:boxCornerRadiusTopStart="@dimen/radius_default"
+                        app:hintEnabled="false">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/it_health_declaration_detail_email"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:editable="false"
+                            android:hint="@string/hint_empty"
+                            android:text="@{healthDeclaration.email}"
+                            android:textAppearance="?attr/textAppearanceBodyMedium" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                style="?attr/materialCardViewElevatedStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_small">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/white"
+                    android:orientation="vertical"
+                    android:padding="@dimen/padding_small">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:justificationMode="inter_word"
+                        android:text="@string/health_declaration_detail_visit"
+                        android:textAppearance="?attr/textAppearanceTitleMedium" />
+
+                    <RadioGroup
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="@{healthDeclaration.visit}"
+                            android:clickable="false"
+                            android:text="@string/health_declaration_detail_yes" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="64dp"
+                            android:checked="@{!healthDeclaration.visit}"
+                            android:clickable="false"
+                            android:text="@string/health_declaration_detail_no" />
+                    </RadioGroup>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/il_health_declaration_detail_visit_details"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="@{healthDeclaration.visit ? View.VISIBLE : View.GONE}"
+                        app:boxCornerRadiusBottomEnd="@dimen/radius_default"
+                        app:boxCornerRadiusBottomStart="@dimen/radius_default"
+                        app:boxCornerRadiusTopEnd="@dimen/radius_default"
+                        app:boxCornerRadiusTopStart="@dimen/radius_default"
+                        app:hintEnabled="false">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/it_health_declaration_detail_visit_details"
+                            android:layout_width="match_parent"
+                            android:layout_height="100dp"
+                            android:editable="false"
+                            android:gravity="top"
+                            android:hint="@string/hint_empty"
+                            android:text="@{healthDeclaration.visitDetail}"
+                            android:textAppearance="?attr/textAppearanceBodyMedium" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                style="?attr/materialCardViewElevatedStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_small">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/white"
+                    android:orientation="vertical"
+                    android:padding="@dimen/padding_small">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:justificationMode="inter_word"
+                        android:text="@string/health_declaration_detail_symptoms"
+                        android:textAppearance="?attr/textAppearanceTitleMedium" />
+
+                    <RadioGroup
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="@{healthDeclaration.symptoms}"
+                            android:clickable="false"
+                            android:text="@string/health_declaration_detail_yes" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="64dp"
+                            android:checked="@{!healthDeclaration.symptoms}"
+                            android:clickable="false"
+                            android:text="@string/health_declaration_detail_no" />
+                    </RadioGroup>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/il_health_declaration_detail_symptoms_details"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="@{healthDeclaration.symptoms ? View.VISIBLE : View.GONE}"
+                        app:boxCornerRadiusBottomEnd="@dimen/radius_default"
+                        app:boxCornerRadiusBottomStart="@dimen/radius_default"
+                        app:boxCornerRadiusTopEnd="@dimen/radius_default"
+                        app:boxCornerRadiusTopStart="@dimen/radius_default"
+                        app:hintEnabled="false">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/it_health_declaration_detail_symptoms_details"
+                            android:layout_width="match_parent"
+                            android:layout_height="100dp"
+                            android:editable="false"
+                            android:gravity="top"
+                            android:hint="@string/hint_empty"
+                            android:text="@{healthDeclaration.symptomsDetail}"
+                            android:textAppearance="?attr/textAppearanceBodyMedium" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                style="?attr/materialCardViewElevatedStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_small">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/white"
+                    android:orientation="vertical"
+                    android:padding="@dimen/padding_small">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:text="@string/health_declaration_detail_contact"
+                        android:textAppearance="?attr/textAppearanceTitleMedium" />
+
+                    <TableLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:stretchColumns="0">
+
+                        <!-- Table Heading -->
+
+                        <TableRow android:background="?attr/colorPrimary">
+
+                            <View
+                                android:layout_width="170dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center" />
+
+                            <TextView
+                                android:layout_width="70dp"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:padding="10sp"
+                                android:text="@string/health_declaration_detail_yes"
+                                android:textAppearance="?attr/textAppearanceTitleSmall"
+                                android:textColor="@android:color/white" />
+
+                            <TextView
+                                android:layout_width="70dp"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:padding="10sp"
+                                android:text="@string/health_declaration_detail_no"
+                                android:textAppearance="?attr/textAppearanceTitleSmall"
+                                android:textColor="@android:color/white" />
+
+                        </TableRow>
+
+                        <!-- Table Data -->
+
+                        <TableRow>
+
+                            <TextView
+                                android:layout_width="170dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:padding="10sp"
+                                android:text="@string/health_declaration_detail_contact_sick_people" />
+
+                            <RadioGroup
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_span="2"
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
+                                <RadioButton
+                                    android:layout_width="31.5dp"
+                                    android:layout_height="wrap_content"
+                                    android:checked="@{healthDeclaration.contactSickPeople}"
+                                    android:clickable="false" />
+
+                                <RadioButton
+                                    android:layout_width="31.5dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="36dp"
+                                    android:checked="@{!healthDeclaration.contactSickPeople}"
+                                    android:clickable="false" />
+                            </RadioGroup>
+
+                        </TableRow>
+
+                        <TableRow>
+
+                            <TextView
+                                android:layout_width="170dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:padding="10sp"
+                                android:text="@string/health_declaration_detail_contact_epidemic_area" />
+
+                            <RadioGroup
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_span="2"
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
+                                <RadioButton
+                                    android:layout_width="31.5dp"
+                                    android:layout_height="wrap_content"
+                                    android:checked="@{healthDeclaration.contactEpidemicArea}"
+                                    android:clickable="false" />
+
+                                <RadioButton
+                                    android:layout_width="31.5dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="36dp"
+                                    android:checked="@{!healthDeclaration.contactEpidemicArea}"
+                                    android:clickable="false" />
+
+                            </RadioGroup>
+
+                        </TableRow>
+
+                        <TableRow>
+
+                            <TextView
+                                android:layout_width="170dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:padding="10sp"
+                                android:text="@string/health_declaration_detail_contact_symptoms_people" />
+
+                            <RadioGroup
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_span="2"
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
+                                <RadioButton
+                                    android:layout_width="31.5dp"
+                                    android:layout_height="wrap_content"
+                                    android:checked="@{healthDeclaration.contactSymptomsPeople}"
+                                    android:clickable="false" />
+
+                                <RadioButton
+                                    android:layout_width="31.5dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="36dp"
+                                    android:checked="@{!healthDeclaration.contactSymptomsPeople}"
+                                    android:clickable="false" />
+                            </RadioGroup>
+
+                        </TableRow>
+                    </TableLayout>
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:justificationMode="inter_word"
+                android:padding="@dimen/padding_small"
+                android:text="@string/health_declaration_detail_terms_and_conditions"
+                android:textAppearance="?attr/textAppearanceTitleMedium" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>

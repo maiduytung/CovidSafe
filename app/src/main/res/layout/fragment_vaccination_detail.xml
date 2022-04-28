@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vaccination"
+            type="com.android.covidsafe.vo.Vaccination" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="@dimen/margin_medium">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="?attr/actionBarSize"
+            android:text="@string/vaccination_detail_full_name"
+            android:textAppearance="?attr/textAppearanceTitleMedium"
+            android:textColor="#4CAF50" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_small"
+            android:text="@{vaccination.fullName}"
+            android:textAppearance="?attr/textAppearanceBodyMedium"
+            tools:text="@tools:sample/full_names" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_small"
+            android:text="@string/vaccination_detail_date_of_birth"
+            android:textAppearance="?attr/textAppearanceTitleMedium"
+            android:textColor="#4CAF50" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:drawableStart="@drawable/ic_cake"
+            android:drawablePadding="@dimen/padding_small"
+            android:drawableTint="?attr/colorPrimary"
+            android:text="@{@string/vaccination_detail_date(vaccination.dateOfBirth.date, vaccination.dateOfBirth.month + 1, vaccination.dateOfBirth.year + 1900)}"
+            android:textAppearance="?attr/textAppearanceBodyMedium"
+            tools:text="@tools:sample/date/ddmmyy" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_small"
+            android:text="@string/vaccination_detail_gender"
+            android:textAppearance="?attr/textAppearanceTitleMedium"
+            android:textColor="#4CAF50" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:drawableStart="@{vaccination.gender ? @drawable/ic_male : @drawable/ic_female}"
+            android:drawablePadding="@dimen/padding_small"
+            android:drawableTint="?colorPrimary"
+            android:text="@{vaccination.gender ? @string/vaccination_detail_male : @string/vaccination_detail_female}"
+            android:textAppearance="?attr/textAppearanceBodyMedium"
+            tools:text="@tools:sample/cities" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_small"
+            android:text="@string/vaccination_detail_detail_identification"
+            android:textAppearance="?attr/textAppearanceTitleMedium"
+            android:textColor="#4CAF50" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:drawableStart="@drawable/ic_identification"
+            android:drawablePadding="@dimen/padding_small"
+            android:drawableTint="?attr/colorPrimary"
+            android:text="@{vaccination.identification}"
+            android:textAppearance="?attr/textAppearanceBodyMedium"
+            tools:text="@tools:sample/us_phones" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_small"
+            android:text="@string/vaccination_detail_address"
+            android:textAppearance="?attr/textAppearanceTitleMedium"
+            android:textColor="#4CAF50" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:drawableStart="@drawable/ic_location"
+            android:drawablePadding="@dimen/padding_small"
+            android:drawableTint="?attr/colorPrimary"
+            android:text="@{vaccination.address}"
+            android:textAppearance="?attr/textAppearanceBodyMedium"
+            tools:text="@tools:sample/cities" />
+
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cv_add_vaccination_content"
+            style="?attr/materialCardViewElevatedStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_large"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize10Percent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/blue_200"
+                android:orientation="vertical"
+                android:padding="@dimen/margin_medium">
+
+                <TextView
+                    android:id="@+id/tv_vaccination_detail_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/vaccination_detail_title"
+                    android:textAppearance="?attr/textAppearanceTitleMedium"
+                    android:textColor="@color/green_500"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.google.android.material.card.MaterialCardView
+                    style="?attr/materialCardViewElevatedStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    app:cardBackgroundColor="@color/green_500"
+                    app:cardCornerRadius="12dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="12dp"
+                        android:paddingTop="4dp"
+                        android:paddingEnd="12dp"
+                        android:paddingBottom="4dp"
+                        android:text="@{@string/vaccination_detail_date(vaccination.vaccinationDate.date, vaccination.vaccinationDate.month + 1, vaccination.vaccinationDate.year + 1900)}"
+                        android:textAppearance="?attr/textAppearanceBodyMedium"
+                        android:textColor="@android:color/white"
+                        tools:text="@tools:sample/date/ddmmyy" />
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <TextView
+                    android:id="@+id/tv_vaccination_detail_type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    android:paddingStart="12dp"
+                    android:paddingTop="4dp"
+                    android:paddingEnd="12dp"
+                    android:paddingBottom="4dp"
+                    android:text="@{@string/vaccination_detail_type(vaccination.vaccinationType)}"
+                    android:textAppearance="?attr/textAppearanceTitleMedium"
+                    android:textColor="@color/blue_500"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_vaccination_detail_title"
+                    tools:text="@string/vaccination_detail_type" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    android:paddingStart="12dp"
+                    android:paddingTop="4dp"
+                    android:paddingEnd="12dp"
+                    android:paddingBottom="4dp"
+                    android:text="@{@string/vaccination_detail_vaccination_center(vaccination.vaccinationCenter)}"
+                    android:textAppearance="?attr/textAppearanceTitleMedium"
+                    android:textColor="@color/blue_500"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_vaccination_detail_type"
+                    tools:text="@string/vaccination_detail_vaccination_center" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+</layout>

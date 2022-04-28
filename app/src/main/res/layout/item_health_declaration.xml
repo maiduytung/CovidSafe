@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="showExpired"
+            type="boolean" />
+
+        <variable
+            name="healthDeclaration"
+            type="com.android.covidsafe.vo.HealthDeclaration" />
+
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        style="?attr/materialCardViewElevatedStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_small">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/gradient_background_orange_light"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="16dp"
+                android:src="@drawable/ic_expired"
+                android:visibility="@{showExpired ? View.VISIBLE : View.GONE}" />
+
+            <com.google.android.material.card.MaterialCardView
+                style="?attr/materialCardViewElevatedStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/padding_small"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <LinearLayout
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:background="@android:color/white"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{Integer.toString(healthDeclaration.createdDate.date)}"
+                        android:textAppearance="?attr/textAppearanceHeadline4"
+                        android:textColor="#FF5722"
+                        tools:text="13" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{@string/item_health_declaration_month_year(Integer.toString(healthDeclaration.createdDate.month + 1), Integer.toString(healthDeclaration.createdDate.year + 1900))}"
+                        android:textAppearance="?attr/textAppearanceTitleSmall"
+                        android:textColor="#FFAB91"
+                        tools:text="04/2022" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/ic_people"
+                    android:drawablePadding="@dimen/padding_medium"
+                    android:drawableTint="@android:color/white"
+                    android:text="@{healthDeclaration.fullName}"
+                    android:textAllCaps="true"
+                    android:textAppearance="?attr/textAppearanceTitleMedium"
+                    android:textColor="@android:color/white"
+                    tools:text="@tools:sample/full_names" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:drawableStart="@drawable/ic_time"
+                    android:drawablePadding="@dimen/padding_medium"
+                    android:drawableTint="@android:color/white"
+                    android:text="@{@string/item_health_declaration_hours_minutes_seconds(healthDeclaration.createdDate.hours, healthDeclaration.createdDate.minutes, healthDeclaration.createdDate.seconds)}"
+                    android:textAppearance="?attr/textAppearanceBody1"
+                    android:textColor="@android:color/white"
+                    tools:text="@tools:sample/date/hhmmss" />
+
+            </LinearLayout>
+        </RelativeLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+</layout>

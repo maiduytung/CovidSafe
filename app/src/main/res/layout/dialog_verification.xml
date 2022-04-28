@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="phoneNumber"
+            type="String" />
+
+        <variable
+            name="countdown"
+            type="Long" />
+
+        <variable
+            name="isExpired"
+            type="boolean" />
+
+        <variable
+            name="otpViewModel"
+            type="com.android.covidsafe.ui.dialog.VerificationViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/login_radius_background"
+        android:minWidth="@dimen/dialog_min_width"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_title_small"
+            android:gravity="center"
+            android:text="@string/verification_title"
+            android:textAppearance="?attr/textAppearanceDisplaySmall" />
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_medium"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/verification_please_enter_the_verification_code_sent_to_number"
+                android:textAppearance="?attr/textAppearanceBodyMedium" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@{phoneNumber}"
+                android:textAppearance="?attr/textAppearanceBodyMedium"
+                android:textStyle="bold"
+                tools:text="@tools:sample/us_phones" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:text="@string/verification_otp_code"
+                android:textAppearance="?attr/textAppearanceTitleMedium" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_small"
+                app:boxCornerRadiusBottomEnd="@dimen/radius_default"
+                app:boxCornerRadiusBottomStart="@dimen/radius_default"
+                app:boxCornerRadiusTopEnd="@dimen/radius_default"
+                app:boxCornerRadiusTopStart="@dimen/radius_default"
+                app:endIconMode="clear_text"
+                app:hintEnabled="false">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/verification_enter_otp_code_hint"
+                    android:inputType="numberDecimal"
+                    android:text="@={otpViewModel.otpInput}"
+                    android:textAppearance="?attr/textAppearanceBodyMedium" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{@string/verification_otp_is_valid_for(countdown.toString())}"
+                android:textAppearance="?attr/textAppearanceTitleMedium"
+                tools:text="@string/verification_otp_is_valid_for" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:text="@string/verification_activation_code_is_expired"
+                android:textAppearance="?attr/textAppearanceBodyMedium"
+                android:textColor="@color/red_500"
+                app:visibleGone="@{isExpired}" />
+
+            <TextView
+                android:id="@+id/textview_resend_code"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:text="@string/verification_resend_code"
+                android:textAppearance="?attr/textAppearanceBodyMedium"
+                android:textColor="?attr/colorPrimary"
+                app:visibleGone="@{isExpired}" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:weightSum="2">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/button_cancel"
+                    style="?attr/materialButtonOutlinedStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/height_button_default"
+                    android:layout_marginEnd="@dimen/margin_medium"
+                    android:layout_weight="1"
+                    android:text="@string/button_cancel"
+                    android:textAppearance="?attr/textAppearanceButton"
+                    android:textColor="?attr/colorPrimary"
+                    app:cornerRadius="@dimen/radius_large"
+                    app:strokeColor="?attr/colorPrimary" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/button_ok"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/height_button_default"
+                    android:layout_marginStart="@dimen/margin_medium"
+                    android:layout_weight="1"
+                    android:text="@string/button_ok"
+                    android:textAppearance="?attr/textAppearanceButton"
+                    android:textColor="@android:color/white"
+                    app:cornerRadius="@dimen/radius_large" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</layout>

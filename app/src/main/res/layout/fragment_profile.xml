@@ -1,0 +1,570 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="profileViewModel"
+            type="com.android.covidsafe.ui.main.account.profile.ProfileViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/padding_small">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="?attr/actionBarSize"
+            app:layout_constraintBottom_toTopOf="@+id/btn_profile_save"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.google.android.material.card.MaterialCardView
+                    style="?attr/materialCardViewElevatedStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/white"
+                        android:orientation="vertical"
+                        android:padding="@dimen/padding_small">
+
+                        <RelativeLayout
+                            android:layout_width="160dp"
+                            android:layout_height="160dp"
+                            android:layout_gravity="center">
+
+                            <com.google.android.material.imageview.ShapeableImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center"
+                                android:background="@color/white"
+                                android:padding="4dp"
+                                app:base64Image="@{profileViewModel.profileRequest.avatar}"
+                                app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"
+                                app:strokeColor="?attr/colorPrimary"
+                                app:strokeWidth="4dp"
+                                tools:src="@tools:sample/avatars" />
+
+                            <com.google.android.material.imageview.ShapeableImageView
+                                android:id="@+id/iv_profile_camera"
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
+                                android:layout_alignParentEnd="true"
+                                android:layout_alignParentBottom="true"
+                                android:layout_gravity="center"
+                                android:background="?attr/colorPrimary"
+                                android:padding="2dp"
+                                android:src="@drawable/ic_change_photo"
+                                android:tint="@android:color/white"
+                                app:contentPadding="8dp"
+                                app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"
+                                app:strokeColor="@android:color/white"
+                                app:strokeWidth="2dp" />
+
+                        </RelativeLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin_medium"
+                            android:layout_marginBottom="5dp"
+                            android:text="@string/profile_full_name"
+                            android:textAppearance="?attr/textAppearanceTitleMedium" />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/il_profile_full_name"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:boxCornerRadiusBottomEnd="@dimen/radius_default"
+                            app:boxCornerRadiusBottomStart="@dimen/radius_default"
+                            app:boxCornerRadiusTopEnd="@dimen/radius_default"
+                            app:boxCornerRadiusTopStart="@dimen/radius_default"
+                            app:hintEnabled="false">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/it_profile_full_name"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="@string/hint_enter_content"
+                                android:inputType="textCapWords"
+                                android:text="@={profileViewModel.profileRequest.fullName}"
+                                android:textAppearance="?attr/textAppearanceBodyMedium" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin_medium"
+                            android:layout_marginBottom="5dp"
+                            android:text="@string/profile_date_of_birth"
+                            android:textAppearance="?attr/textAppearanceTitleMedium" />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/il_profile_date_of_birth"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:boxCornerRadiusBottomEnd="@dimen/radius_default"
+                            app:boxCornerRadiusBottomStart="@dimen/radius_default"
+                            app:boxCornerRadiusTopEnd="@dimen/radius_default"
+                            app:boxCornerRadiusTopStart="@dimen/radius_default"
+                            app:endIconDrawable="@drawable/ic_calender"
+                            app:endIconMode="custom"
+                            app:hintEnabled="false">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/it_profile_date_of_birth"
+                                date="@{profileViewModel.profileRequest.dateOfBirth}"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:editable="false"
+                                android:enabled="true"
+                                android:hint="@string/hint_date_month_year"
+                                android:textAppearance="?attr/textAppearanceBodyMedium" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin_medium"
+                            android:text="@string/profile_gender"
+                            android:textAppearance="?attr/textAppearanceTitleMedium" />
+
+                        <RadioGroup
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:checked="@{profileViewModel.profileRequest.gender}"
+                                android:onClick="@{() -> profileViewModel.profileRequest.setGender(true)}"
+                                android:text="@string/profile_male" />
+
+                            <RadioButton
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="64dp"
+                                android:checked="@{!profileViewModel.profileRequest.gender}"
+                                android:onClick="@{() -> profileViewModel.profileRequest.setGender(false)}"
+                                android:text="@string/profile_female" />
+                        </RadioGroup>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:text="@string/profile_phone_number"
+                            android:textAppearance="?attr/textAppearanceTitleMedium" />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/il_profile_phone_number"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:boxCornerRadiusBottomEnd="@dimen/radius_default"
+                            app:boxCornerRadiusBottomStart="@dimen/radius_default"
+                            app:boxCornerRadiusTopEnd="@dimen/radius_default"
+                            app:boxCornerRadiusTopStart="@dimen/radius_default"
+                            app:hintEnabled="false">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/it_profile_phone_number"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:enabled="false"
+                                android:hint="@string/hint_enter_content"
+                                android:inputType="phone"
+                                android:text="@={profileViewModel.profileRequest.phoneNumber}"
+                                android:textAppearance="?attr/textAppearanceBodyMedium" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin_medium"
+                            android:layout_marginBottom="5dp"
+                            android:text="@string/profile_identification"
+                            android:textAppearance="?attr/textAppearanceTitleMedium" />
+
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/il_profile_identification"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:boxCornerRadiusBottomEnd="@dimen/radius_default"
+                            app:boxCornerRadiusBottomStart="@dimen/radius_default"
+                            app:boxCornerRadiusTopEnd="@dimen/radius_default"
+                            app:boxCornerRadiusTopStart="@dimen/radius_default"
+                            app:hintEnabled="false">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/it_profile_identification"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="@string/hint_enter_content"
+                                android:singleLine="true"
+                                android:text="@={profileViewModel.profileRequest.identification}"
+                                android:textAppearance="?attr/textAppearanceBodyMedium" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin_medium"
+                            android:layout_marginBottom="5dp"
+                            android:text="@string/profile_email"
+                            android:textAppearance="?attr/textAppearanceTitleMedium" />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/il_profile_email"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:boxCornerRadiusBottomEnd="@dimen/radius_default"
+                            app:boxCornerRadiusBottomStart="@dimen/radius_default"
+                            app:boxCornerRadiusTopEnd="@dimen/radius_default"
+                            app:boxCornerRadiusTopStart="@dimen/radius_default"
+                            app:hintEnabled="false">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/it_profile_email"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="@string/hint_enter_content"
+                                android:inputType="textEmailAddress"
+                                android:text="@={profileViewModel.profileRequest.email}"
+                                android:textAppearance="?attr/textAppearanceBodyMedium" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    style="?attr/materialCardViewElevatedStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_small">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/white"
+                        android:orientation="vertical"
+                        android:padding="@dimen/padding_small">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:text="@string/profile_province"
+                            android:textAppearance="?attr/textAppearanceTitleMedium" />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/il_profile_province"
+                            style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:boxCornerRadiusBottomEnd="@dimen/radius_default"
+                            app:boxCornerRadiusBottomStart="@dimen/radius_default"
+                            app:boxCornerRadiusTopEnd="@dimen/radius_default"
+                            app:boxCornerRadiusTopStart="@dimen/radius_default"
+                            app:hintEnabled="false">
+
+                            <AutoCompleteTextView
+                                android:id="@+id/at_profile_province"
+                                android:text="@{profileViewModel.province}"
+                                subnationalAdapter="@{profileViewModel.provinceList}"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="@string/hint_select"
+                                android:inputType="none"
+                                android:textAppearance="?attr/textAppearanceBodyMedium" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin_medium"
+                            android:layout_marginBottom="5dp"
+                            android:text="@string/profile_district"
+                            android:textAppearance="?attr/textAppearanceTitleMedium" />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/il_profile_district"
+                            style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:boxCornerRadiusBottomEnd="@dimen/radius_default"
+                            app:boxCornerRadiusBottomStart="@dimen/radius_default"
+                            app:boxCornerRadiusTopEnd="@dimen/radius_default"
+                            app:boxCornerRadiusTopStart="@dimen/radius_default"
+                            app:hintEnabled="false">
+
+                            <AutoCompleteTextView
+                                android:id="@+id/at_profile_district"
+                                android:text="@{profileViewModel.district}"
+                                subnationalAdapter="@{profileViewModel.districtList}"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="@string/hint_select"
+                                android:inputType="none"
+                                android:textAppearance="?attr/textAppearanceBodyMedium" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin_medium"
+                            android:layout_marginBottom="5dp"
+                            android:text="@string/profile_ward"
+                            android:textAppearance="?attr/textAppearanceTitleMedium" />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/il_profile_ward"
+                            style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:boxCornerRadiusBottomEnd="@dimen/radius_default"
+                            app:boxCornerRadiusBottomStart="@dimen/radius_default"
+                            app:boxCornerRadiusTopEnd="@dimen/radius_default"
+                            app:boxCornerRadiusTopStart="@dimen/radius_default"
+                            app:hintEnabled="false">
+
+                            <AutoCompleteTextView
+                                android:id="@+id/at_profile_ward"
+                                android:text="@{profileViewModel.ward}"
+                                subnationalAdapter="@{profileViewModel.wardList}"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="@string/hint_select"
+                                android:inputType="none"
+                                android:textAppearance="?attr/textAppearanceBodyMedium" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin_medium"
+                            android:layout_marginBottom="5dp"
+                            android:text="@string/profile_address"
+                            android:textAppearance="?attr/textAppearanceTitleMedium" />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/il_profile_address"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:boxCornerRadiusBottomEnd="@dimen/radius_default"
+                            app:boxCornerRadiusBottomStart="@dimen/radius_default"
+                            app:boxCornerRadiusTopEnd="@dimen/radius_default"
+                            app:boxCornerRadiusTopStart="@dimen/radius_default"
+                            app:hintEnabled="false">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/it_profile_address"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="@string/hint_enter_content"
+                                android:singleLine="true"
+                                android:text="@={profileViewModel.profileRequest.address}"
+                                android:textAppearance="?attr/textAppearanceBodyMedium" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    style="?attr/materialCardViewElevatedStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_small">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/white"
+                        android:orientation="vertical"
+                        android:padding="@dimen/padding_small">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:text="@string/profile_health_insurance_number"
+                            android:textAppearance="?attr/textAppearanceTitleMedium" />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/il_profile_health_insurance_number"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:boxCornerRadiusBottomEnd="@dimen/radius_default"
+                            app:boxCornerRadiusBottomStart="@dimen/radius_default"
+                            app:boxCornerRadiusTopEnd="@dimen/radius_default"
+                            app:boxCornerRadiusTopStart="@dimen/radius_default"
+                            app:hintEnabled="false">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/it_profile_health_insurance_number"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="@string/hint_enter_content"
+                                android:singleLine="true"
+                                android:text="@={profileViewModel.profileRequest.healthInsuranceNumber}"
+                                android:textAppearance="?attr/textAppearanceBodyMedium" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin_medium"
+                            android:layout_marginBottom="5dp"
+                            android:text="@string/profile_nationality"
+                            android:textAppearance="?attr/textAppearanceTitleMedium" />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/il_profile_nationality"
+                            style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:boxCornerRadiusBottomEnd="@dimen/radius_default"
+                            app:boxCornerRadiusBottomStart="@dimen/radius_default"
+                            app:boxCornerRadiusTopEnd="@dimen/radius_default"
+                            app:boxCornerRadiusTopStart="@dimen/radius_default"
+                            app:hintEnabled="false">
+
+                            <AutoCompleteTextView
+                                android:id="@+id/at_profile_nationality"
+                                android:text="@{profileViewModel.nationality}"
+                                nationalityAdapter="@{profileViewModel.nationalityList}"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="@string/hint_select"
+                                android:inputType="none"
+                                android:textAppearance="?attr/textAppearanceBodyMedium" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin_medium"
+                            android:layout_marginBottom="5dp"
+                            android:text="@string/profile_ethnic"
+                            android:textAppearance="?attr/textAppearanceTitleMedium" />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/il_profile_ethnic"
+                            style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:boxCornerRadiusBottomEnd="@dimen/radius_default"
+                            app:boxCornerRadiusBottomStart="@dimen/radius_default"
+                            app:boxCornerRadiusTopEnd="@dimen/radius_default"
+                            app:boxCornerRadiusTopStart="@dimen/radius_default"
+                            app:hintEnabled="false">
+
+                            <AutoCompleteTextView
+                                android:id="@+id/at_profile_ethnic"
+                                ethnicAdapter="@{profileViewModel.ethnicList}"
+                                android:text="@{profileViewModel.ethnic}"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="@string/hint_select"
+                                android:inputType="none"
+                                android:textAppearance="?attr/textAppearanceBodyMedium" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin_medium"
+                            android:layout_marginBottom="5dp"
+                            android:text="@string/profile_religion"
+                            android:textAppearance="?attr/textAppearanceTitleMedium" />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/il_profile_religion"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:boxCornerRadiusBottomEnd="@dimen/radius_default"
+                            app:boxCornerRadiusBottomStart="@dimen/radius_default"
+                            app:boxCornerRadiusTopEnd="@dimen/radius_default"
+                            app:boxCornerRadiusTopStart="@dimen/radius_default"
+                            app:hintEnabled="false">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/it_profile_religion"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="@string/hint_enter_content"
+                                android:text="@={profileViewModel.profileRequest.religion}"
+                                android:textAppearance="?attr/textAppearanceBodyMedium" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin_medium"
+                            android:layout_marginBottom="5dp"
+                            android:text="@string/profile_occupation"
+                            android:textAppearance="?attr/textAppearanceTitleMedium" />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/il_profile_occupation"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:boxCornerRadiusBottomEnd="@dimen/radius_default"
+                            app:boxCornerRadiusBottomStart="@dimen/radius_default"
+                            app:boxCornerRadiusTopEnd="@dimen/radius_default"
+                            app:boxCornerRadiusTopStart="@dimen/radius_default"
+                            app:hintEnabled="false">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/it_profile_occupation"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="@string/hint_enter_content"
+                                android:text="@={profileViewModel.profileRequest.occupation}"
+                                android:textAppearance="?attr/textAppearanceBodyMedium" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <Button
+            android:id="@+id/btn_profile_save"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_margin="@dimen/margin_small"
+            android:text="@string/button_save"
+            android:textAppearance="?attr/textAppearanceButton"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
