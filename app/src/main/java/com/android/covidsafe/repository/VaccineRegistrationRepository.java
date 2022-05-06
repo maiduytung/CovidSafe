@@ -10,7 +10,7 @@ import com.android.covidsafe.AppExecutors;
 import com.android.covidsafe.api.ApiResponse;
 import com.android.covidsafe.api.VaccineRegistrationResponse;
 import com.android.covidsafe.api.VaccineRegistrationService;
-import com.android.covidsafe.db.AppDatabase;
+import com.android.covidsafe.db.SecureDatabase;
 import com.android.covidsafe.db.VaccineRegistrationDao;
 import com.android.covidsafe.utilities.AbsentLiveData;
 import com.android.covidsafe.utilities.RateLimiter;
@@ -39,7 +39,7 @@ import retrofit2.Response;
 @Singleton
 public class VaccineRegistrationRepository {
 
-    private final AppDatabase db;
+    private final SecureDatabase db;
 
     private final VaccineRegistrationDao vaccineRegistrationDao;
 
@@ -50,7 +50,7 @@ public class VaccineRegistrationRepository {
     private RateLimiter<String> vaccineRegistrationListRateLimit = new RateLimiter<>(10, TimeUnit.MINUTES);
 
     @Inject
-    public VaccineRegistrationRepository(AppExecutors appExecutors, AppDatabase db, VaccineRegistrationDao vaccineRegistrationDao,
+    public VaccineRegistrationRepository(AppExecutors appExecutors, SecureDatabase db, VaccineRegistrationDao vaccineRegistrationDao,
                                          VaccineRegistrationService vaccineRegistrationService) {
         this.db = db;
         this.vaccineRegistrationDao = vaccineRegistrationDao;

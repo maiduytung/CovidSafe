@@ -1,6 +1,6 @@
 package com.android.covidsafe.utilities;
 
-import com.android.covidsafe.repository.ISharedPreferences;
+import com.android.covidsafe.repository.SecureSharedPref;
 
 import java.io.IOException;
 
@@ -14,16 +14,18 @@ import okhttp3.Response;
 @Singleton
 public class AccessTokenInterceptor implements Interceptor {
 
-    private final ISharedPreferences sharedPreferences;
+    private String accessToken;
 
     @Inject
-    public AccessTokenInterceptor(ISharedPreferences sharedPreferences) {
-        this.sharedPreferences = sharedPreferences;
+    public AccessTokenInterceptor() {
+    }
+
+    public void setAccessToken(String token) {
+        accessToken = token;
     }
 
     @Override
     public Response intercept(Chain chain) throws IOException {
-        String accessToken = sharedPreferences.getString(Constants.ACCESS_TOKEN);
 
         Request request = chain.request();
         String noAuth = request.header("no-auth");
@@ -31,7 +33,7 @@ public class AccessTokenInterceptor implements Interceptor {
         Request.Builder builder = request.newBuilder();
 
         if (noAuth == null && accessToken != null && !accessToken.isEmpty()) {
-            builder.header("Authorization",  "Bearer " + accessToken);
+            builder.header("Authorization", "Bearer " + accessToken);
         }
 
         request = builder.build();

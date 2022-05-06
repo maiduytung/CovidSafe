@@ -6,7 +6,7 @@ import androidx.lifecycle.MutableLiveData;
 import com.android.covidsafe.api.ApiResponse;
 import com.android.covidsafe.api.VaccinationResponse;
 import com.android.covidsafe.api.VaccinationService;
-import com.android.covidsafe.db.AppDatabase;
+import com.android.covidsafe.db.SecureDatabase;
 import com.android.covidsafe.vo.VaccinationResult;
 import com.android.covidsafe.vo.Resource;
 
@@ -23,9 +23,9 @@ public class FetchNextVaccinationPageTask implements Runnable {
     private final MutableLiveData<Resource<Boolean>> liveData = new MutableLiveData<>();
     private final String query;
     private final VaccinationService vaccinationService;
-    private final AppDatabase db;
+    private final SecureDatabase db;
 
-    FetchNextVaccinationPageTask(String query, VaccinationService vaccinationService, AppDatabase db) {
+    FetchNextVaccinationPageTask(String query, VaccinationService vaccinationService, SecureDatabase db) {
         this.query = query;
         this.vaccinationService = vaccinationService;
         this.db = db;
@@ -45,7 +45,7 @@ public class FetchNextVaccinationPageTask implements Runnable {
         }
         try {
             Response<VaccinationResponse> response = vaccinationService
-                    .getAll(nextPage, query).execute();
+                    .getAll(nextPage).execute();
             ApiResponse<VaccinationResponse> apiResponse = new ApiResponse<>(response);
             if (apiResponse.isSuccessful()) {
                 // we merge all repo ids into 1 list so that it is easier to fetch the result list.

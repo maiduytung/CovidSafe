@@ -10,7 +10,7 @@ import com.android.covidsafe.AppExecutors;
 import com.android.covidsafe.api.ApiResponse;
 import com.android.covidsafe.api.ReportResponse;
 import com.android.covidsafe.api.ReportService;
-import com.android.covidsafe.db.AppDatabase;
+import com.android.covidsafe.db.SecureDatabase;
 import com.android.covidsafe.db.ReportDao;
 import com.android.covidsafe.utilities.AbsentLiveData;
 import com.android.covidsafe.utilities.RateLimiter;
@@ -39,7 +39,7 @@ import retrofit2.Response;
 @Singleton
 public class ReportRepository {
 
-    private final AppDatabase db;
+    private final SecureDatabase db;
 
     private final ReportDao reportDao;
 
@@ -50,7 +50,7 @@ public class ReportRepository {
     private RateLimiter<String> reportListRateLimit = new RateLimiter<>(10, TimeUnit.MINUTES);
 
     @Inject
-    public ReportRepository(AppExecutors appExecutors, AppDatabase db, ReportDao reportDao,
+    public ReportRepository(AppExecutors appExecutors, SecureDatabase db, ReportDao reportDao,
                             ReportService reportService) {
         this.db = db;
         this.reportDao = reportDao;

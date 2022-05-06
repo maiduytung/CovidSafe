@@ -57,11 +57,6 @@ public class HomeFragment extends DaggerFragment {
     }
 
     private void subscribeUi() {
-        homeViewModel.getProfileResource().observe(getViewLifecycleOwner(), profileResource -> {
-            if (profileResource.status == Status.SUCCESS && profileResource.data != null && profileResource.data.identification != null) {
-                homeViewModel.setIdentification(profileResource.data.identification);
-            }
-        });
         homeViewModel.getCertificationResource().observe(getViewLifecycleOwner(), certificationResource -> {
             if (certificationResource.status == Status.SUCCESS && certificationResource.data != null) {
                 binding.get().setCertification(certificationResource.data);

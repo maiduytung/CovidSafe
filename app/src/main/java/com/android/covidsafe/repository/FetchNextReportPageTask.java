@@ -6,7 +6,7 @@ import androidx.lifecycle.MutableLiveData;
 import com.android.covidsafe.api.ApiResponse;
 import com.android.covidsafe.api.ReportResponse;
 import com.android.covidsafe.api.ReportService;
-import com.android.covidsafe.db.AppDatabase;
+import com.android.covidsafe.db.SecureDatabase;
 import com.android.covidsafe.vo.ReportResult;
 import com.android.covidsafe.vo.Resource;
 
@@ -23,9 +23,9 @@ public class FetchNextReportPageTask implements Runnable {
     private final MutableLiveData<Resource<Boolean>> liveData = new MutableLiveData<>();
     private final String query;
     private final ReportService reportService;
-    private final AppDatabase db;
+    private final SecureDatabase db;
 
-    FetchNextReportPageTask(String query, ReportService reportService, AppDatabase db) {
+    FetchNextReportPageTask(String query, ReportService reportService, SecureDatabase db) {
         this.query = query;
         this.reportService = reportService;
         this.db = db;

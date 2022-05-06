@@ -6,9 +6,9 @@
         android:icon="@drawable/ic_home"
         android:title="@string/home_title" />
 
-    <item
-        android:id="@+id/placeholder"
-        android:title="" />
+<!--    <item-->
+<!--        android:id="@+id/placeholder"-->
+<!--        android:title="" />-->
 
     <item
         android:id="@+id/account_fragment"

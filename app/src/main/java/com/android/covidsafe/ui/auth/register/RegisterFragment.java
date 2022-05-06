@@ -12,6 +12,9 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.biometric.BiometricManager;
+import androidx.biometric.BiometricPrompt;
 import androidx.databinding.DataBindingComponent;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModelProvider;
@@ -21,26 +24,45 @@ import androidx.navigation.fragment.NavHostFragment;
 import com.android.covidsafe.R;
 import com.android.covidsafe.binding.FragmentDataBindingComponent;
 import com.android.covidsafe.databinding.FragmentRegisterBinding;
+import com.android.covidsafe.utilities.AccessTokenAuthenticator;
 import com.android.covidsafe.utilities.AutoClearedValue;
+import com.android.covidsafe.utilities.BiometricPromptUtils;
+import com.android.covidsafe.utilities.CiphertextWrapper;
 import com.android.covidsafe.utilities.Constants;
+import com.android.covidsafe.utilities.CryptographyManager;
+import com.android.covidsafe.utilities.CryptographyManagerImpl;
 import com.android.covidsafe.utilities.FieldValidators;
 import com.android.covidsafe.viewmodels.ViewModelProviderFactory;
 import com.android.covidsafe.vo.Status;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
+import org.jetbrains.annotations.NotNull;
+
+import javax.crypto.Cipher;
 import javax.inject.Inject;
 
 import dagger.android.support.DaggerFragment;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function1;
 
 public class RegisterFragment extends DaggerFragment {
 
     @Inject
     ViewModelProviderFactory viewModelProviderFactory;
 
+    @Inject
+    AccessTokenAuthenticator accessTokenAuthenticator;
+
     DataBindingComponent dataBindingComponent = new FragmentDataBindingComponent(this);
 
     AutoClearedValue<FragmentRegisterBinding> binding;
 
+    private CryptographyManager cryptographyManager = new CryptographyManagerImpl();
+
     private RegisterViewModel registerViewModel;
+
+    private String refreshToken;
+
 
     @Nullable
     @Override
@@ -73,7 +95,25 @@ public class RegisterFragment extends DaggerFragment {
 
         registerViewModel.getTokenResource().observe(getViewLifecycleOwner(), tokenResource -> {
             if (tokenResource.status == Status.SUCCESS && tokenResource.data != null) {
-                NavHostFragment.findNavController(this).navigate(R.id.action_registerFragment_to_mainActivity);
+                Toast.makeText(getContext(), "Đăng ký thành công. Bạn vui lòng cập nhật hồ sơ người dùng để sử dụng đầy đủ chức năng ứng dụng.", Toast.LENGTH_SHORT).show();
+
+                refreshToken = tokenResource.data.refreshToken;
+
+                accessTokenAuthenticator.setAccessToken(tokenResource.data.accessToken);
+                accessTokenAuthenticator.setRefreshToken(tokenResource.data.refreshToken);
+
+                new MaterialAlertDialogBuilder(getContext())
+                        .setTitle("Mở khoá bằng vân tay")
+                        .setMessage("Sử dụng dấu vân tay để mở khoá ứng dụng một cánh nhanh chóng và thuận lợi")
+                        .setCancelable(false)
+                        .setNegativeButton("Để sau", (dialogInterface, i) -> {
+                            navToMainActivity();
+                        })
+                        .setPositiveButton("Bật", (dialogInterface, i) -> {
+                            showBiometricPromptForEncryption();
+//                            navToMainActivity();
+                        })
+                        .show();
             }
         });
     }
@@ -101,14 +141,13 @@ public class RegisterFragment extends DaggerFragment {
         }
     }
 
-
     private Boolean isValidate() {
         return validatePhoneNumber() && validatePassword();
     }
 
     private Boolean validatePhoneNumber() {
         if (binding.get().itRegisterPhoneNumber.getText().toString().trim().isEmpty()) {
-            binding.get().ilRegisterPhoneNumber.setError(getResources().getText(R.string.error_username_required_field));
+            binding.get().ilRegisterPhoneNumber.setError(getResources().getText(R.string.error_phone_number_invalid));
             binding.get().itRegisterPhoneNumber.requestFocus();
             return false;
         } else {
@@ -170,5 +209,41 @@ public class RegisterFragment extends DaggerFragment {
         }
     }
 
+    private void showBiometricPromptForEncryption() {
+        int canAuthenticate = BiometricManager.from(getContext()).canAuthenticate();
+        if (canAuthenticate == BiometricManager.BIOMETRIC_SUCCESS) {
+            String secretKeyName = "SECRET_KEY_NAME";
+            Cipher cipher = cryptographyManager.getInitializedCipherForEncryption(secretKeyName);
 
+            BiometricPrompt biometricPrompt = BiometricPromptUtils.INSTANCE.createBiometricPrompt((AppCompatActivity) requireActivity(), new Function1() {
+                public Object invoke(Object obj) {
+                    this.invoke((BiometricPrompt.AuthenticationResult) obj);
+                    return Unit.INSTANCE;
+                }
+
+                public final void invoke(@NotNull BiometricPrompt.AuthenticationResult result) {
+                    encryptAndStoreServerToken(result);
+                }
+            });
+
+            BiometricPrompt.PromptInfo promptInfo = BiometricPromptUtils.INSTANCE.createPromptInfo((AppCompatActivity) requireActivity());
+            biometricPrompt.authenticate(promptInfo, new BiometricPrompt.CryptoObject(cipher));
+        }
+    }
+
+    private final void encryptAndStoreServerToken(BiometricPrompt.AuthenticationResult authResult) {
+        BiometricPrompt.CryptoObject cryptoObject = authResult.getCryptoObject();
+        if (cryptoObject != null) {
+            Cipher cipher = cryptoObject.getCipher();
+            if (cipher != null && refreshToken != null) {
+                CiphertextWrapper encryptedServerTokenWrapper = cryptographyManager.encryptData(refreshToken, cipher);
+                cryptographyManager.persistCiphertextWrapperToSharedPrefs(encryptedServerTokenWrapper, getContext(), "biometric_prefs", 0, "ciphertext_wrapper");
+            }
+        }
+        navToMainActivity();
+    }
+
+    private void navToMainActivity() {
+        NavHostFragment.findNavController(this).navigate(R.id.action_registerFragment_to_mainActivity);
+    }
 }

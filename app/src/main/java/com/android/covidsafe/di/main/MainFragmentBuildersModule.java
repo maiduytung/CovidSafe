@@ -2,6 +2,7 @@ package com.android.covidsafe.di.main;
 
 import com.android.covidsafe.ui.main.account.AccountFragment;
 import com.android.covidsafe.ui.main.account.profile.ProfileFragment;
+import com.android.covidsafe.ui.main.account.setting.SettingFragment;
 import com.android.covidsafe.ui.main.home.HomeFragment;
 import com.android.covidsafe.ui.main.home.healthdeclaration.HealthDeclarationFragment;
 import com.android.covidsafe.ui.main.home.healthdeclaration.add.AddHealthDeclarationFragment;
@@ -14,6 +15,8 @@ import com.android.covidsafe.ui.main.home.vaccination.detail.VaccinationDetailFr
 import com.android.covidsafe.ui.main.home.vaccineregistration.VaccineRegistrationFragment;
 import com.android.covidsafe.ui.main.home.vaccineregistration.add.AddVaccineRegistrationFragment;
 import com.android.covidsafe.ui.main.home.vaccineregistration.detail.VaccineRegistrationDetailFragment;
+
+import java.util.Set;
 
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
@@ -64,4 +67,6 @@ public abstract class MainFragmentBuildersModule {
     @ContributesAndroidInjector
     abstract VaccinationDetailFragment contributeVaccinationDetailFragment();
 
+    @ContributesAndroidInjector
+    abstract SettingFragment contributeSettingFragment();
 }

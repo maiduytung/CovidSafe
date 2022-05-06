@@ -2,8 +2,6 @@ package com.android.covidsafe.repository;
 
 import androidx.lifecycle.LiveData;
 
-import com.android.covidsafe.AppExecutors;
-import com.android.covidsafe.db.AppDatabase;
 import com.android.covidsafe.db.NationalityDao;
 import com.android.covidsafe.vo.Nationality;
 
@@ -17,14 +15,10 @@ import javax.inject.Singleton;
  */
 @Singleton
 public class NationalityRepository {
-    private final AppDatabase db;
     private final NationalityDao nationalityDao;
-    private final AppExecutors appExecutors;
 
     @Inject
-    NationalityRepository(AppExecutors appExecutors, AppDatabase db, NationalityDao nationalityDao) {
-        this.appExecutors = appExecutors;
-        this.db = db;
+    NationalityRepository(NationalityDao nationalityDao) {
         this.nationalityDao = nationalityDao;
     }
 

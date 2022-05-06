@@ -64,11 +64,7 @@ public class VaccinationFragment extends DaggerFragment {
         binding.get().rvVaccinationList.setAdapter(rvAdapter);
         adapter = new AutoClearedValue<>(this, rvAdapter);
 
-        vaccinationViewModel.getProfileResource().observe(getViewLifecycleOwner(), profileResource -> {
-            if (profileResource.status == Status.SUCCESS && profileResource.data != null && profileResource.data.identification != null) {
-                vaccinationViewModel.setQuery(profileResource.data.identification);
-            }
-        });
+        vaccinationViewModel.setQuery("Vaccination");
 
         binding.get().setCallback(() -> vaccinationViewModel.refresh());
     }

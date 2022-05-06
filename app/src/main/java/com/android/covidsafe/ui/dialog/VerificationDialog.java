@@ -74,7 +74,7 @@ public class VerificationDialog extends DaggerDialogFragment {
         initOtpDialogInputListener();
 
         String androidId = Settings.Secure.getString(getContext().getContentResolver(), Settings.Secure.ANDROID_ID);
-        SendVerificationRequest sendVerificationRequest = new SendVerificationRequest(phoneNumber, androidId);
+        SendVerificationRequest sendVerificationRequest = new SendVerificationRequest("0" + phoneNumber, androidId);
         verificationViewModel.setOTPRequest(sendVerificationRequest);
 
         observeGetOTP();
@@ -82,8 +82,8 @@ public class VerificationDialog extends DaggerDialogFragment {
     }
 
     private void initPhoneNumber() {
-        phoneNumber = getString(R.string.prefix_phone_number) + getArguments().getString(Constants.REGISTER_KEY);
-        binding.get().setPhoneNumber(phoneNumber);
+        phoneNumber = getArguments().getString(Constants.REGISTER_KEY);
+        binding.get().setPhoneNumber("0" + phoneNumber);
     }
 
     private void initCountdownTime() {
@@ -123,7 +123,7 @@ public class VerificationDialog extends DaggerDialogFragment {
     private void observeGetOTP() {
         verificationViewModel.getOTPResults().observe(getViewLifecycleOwner(), sendOTPResource -> {
             if (sendOTPResource.data != null) {
-                Toast.makeText(getContext(), getString(R.string.toast_otpsentsuccessfully) + " " + phoneNumber, Toast.LENGTH_SHORT);
+                Toast.makeText(getContext(), getString(R.string.toast_otpsentsuccessfully) + " 0" + phoneNumber, Toast.LENGTH_SHORT);
             }
         });
     }

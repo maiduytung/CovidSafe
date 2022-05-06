@@ -20,9 +20,9 @@ public interface VaccinationService {
     @GET("/api/users/vaccination/{id}")
     LiveData<ApiResponse<Vaccination>> getOne(@Path("id") String id);
 
-    @GET("/api/users/vaccination/identification/{id}")
-    LiveData<ApiResponse<VaccinationResponse>> getAll(@Path("id") String id);
+    @GET("/api/user/vaccination")
+    LiveData<ApiResponse<VaccinationResponse>> getAll();
 
-    @GET("/api/users/vaccination/identification/{id}")
-    Call<VaccinationResponse> getAll(@Query("page") int page, @Path("id") String id);
+    @GET("/api/user/vaccination")
+    Call<VaccinationResponse> getAll(@Query("page") int page);
 }

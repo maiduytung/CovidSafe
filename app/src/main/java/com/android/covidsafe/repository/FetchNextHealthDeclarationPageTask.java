@@ -6,7 +6,7 @@ import androidx.lifecycle.MutableLiveData;
 import com.android.covidsafe.api.ApiResponse;
 import com.android.covidsafe.api.HealthDeclarationResponse;
 import com.android.covidsafe.api.HealthDeclarationService;
-import com.android.covidsafe.db.AppDatabase;
+import com.android.covidsafe.db.SecureDatabase;
 import com.android.covidsafe.vo.HealthDeclarationResult;
 import com.android.covidsafe.vo.Resource;
 
@@ -23,9 +23,9 @@ public class FetchNextHealthDeclarationPageTask implements Runnable {
     private final MutableLiveData<Resource<Boolean>> liveData = new MutableLiveData<>();
     private final String query;
     private final HealthDeclarationService healthDeclarationService;
-    private final AppDatabase db;
+    private final SecureDatabase db;
 
-    FetchNextHealthDeclarationPageTask(String query, HealthDeclarationService healthDeclarationService, AppDatabase db) {
+    FetchNextHealthDeclarationPageTask(String query, HealthDeclarationService healthDeclarationService, SecureDatabase db) {
         this.query = query;
         this.healthDeclarationService = healthDeclarationService;
         this.db = db;

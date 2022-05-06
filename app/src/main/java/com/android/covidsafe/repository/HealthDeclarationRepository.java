@@ -10,7 +10,7 @@ import com.android.covidsafe.AppExecutors;
 import com.android.covidsafe.api.ApiResponse;
 import com.android.covidsafe.api.HealthDeclarationResponse;
 import com.android.covidsafe.api.HealthDeclarationService;
-import com.android.covidsafe.db.AppDatabase;
+import com.android.covidsafe.db.SecureDatabase;
 import com.android.covidsafe.db.HealthDeclarationDao;
 import com.android.covidsafe.utilities.AbsentLiveData;
 import com.android.covidsafe.utilities.RateLimiter;
@@ -39,7 +39,7 @@ import retrofit2.Response;
 @Singleton
 public class HealthDeclarationRepository {
 
-    private final AppDatabase db;
+    private final SecureDatabase db;
 
     private final HealthDeclarationDao healthDeclarationDao;
 
@@ -50,7 +50,7 @@ public class HealthDeclarationRepository {
     private RateLimiter<String> healthDeclarationListRateLimit = new RateLimiter<>(10, TimeUnit.MINUTES);
 
     @Inject
-    public HealthDeclarationRepository(AppExecutors appExecutors, AppDatabase db, HealthDeclarationDao healthDeclarationDao,
+    public HealthDeclarationRepository(AppExecutors appExecutors, SecureDatabase db, HealthDeclarationDao healthDeclarationDao,
                                        HealthDeclarationService healthDeclarationService) {
         this.db = db;
         this.healthDeclarationDao = healthDeclarationDao;

@@ -2,8 +2,6 @@ package com.android.covidsafe.repository;
 
 import androidx.lifecycle.LiveData;
 
-import com.android.covidsafe.AppExecutors;
-import com.android.covidsafe.db.AppDatabase;
 import com.android.covidsafe.db.PriorityDao;
 import com.android.covidsafe.vo.Priority;
 
@@ -17,14 +15,10 @@ import javax.inject.Singleton;
  */
 @Singleton
 public class PriorityRepository {
-    private final AppDatabase db;
     private final PriorityDao priorityDao;
-    private final AppExecutors appExecutors;
 
     @Inject
-    PriorityRepository(AppExecutors appExecutors, AppDatabase db, PriorityDao priorityDao) {
-        this.appExecutors = appExecutors;
-        this.db = db;
+    PriorityRepository(PriorityDao priorityDao) {
         this.priorityDao = priorityDao;
     }
 

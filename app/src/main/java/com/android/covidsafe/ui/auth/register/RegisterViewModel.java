@@ -39,7 +39,7 @@ public class RegisterViewModel extends ViewModel {
     }
 
     public void setRegisterUser(String deviceId, String verificationKey) {
-        RegisterRequest registerRequest = new RegisterRequest(phoneNumber.getValue(), password.getValue(), deviceId, verificationKey);
+        RegisterRequest registerRequest = new RegisterRequest("0" + phoneNumber.getValue(), password.getValue(), deviceId, verificationKey);
         this.registerUser.setValue(registerRequest);
     }
 

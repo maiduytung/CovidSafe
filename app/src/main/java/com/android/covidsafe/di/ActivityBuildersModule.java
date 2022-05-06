@@ -1,7 +1,7 @@
 package com.android.covidsafe.di;
 
-import com.android.covidsafe.MainActivity;
-import com.android.covidsafe.SplashActivity;
+import com.android.covidsafe.ui.main.MainActivity;
+import com.android.covidsafe.ui.SplashActivity;
 import com.android.covidsafe.di.auth.AuthFragmentBuildersModule;
 import com.android.covidsafe.di.auth.AuthModule;
 import com.android.covidsafe.di.auth.AuthScope;

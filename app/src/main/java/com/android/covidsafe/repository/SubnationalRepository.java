@@ -6,8 +6,6 @@ import static com.android.covidsafe.utilities.Constants.SUBNATIONAL_TYPE_WARD;
 
 import androidx.lifecycle.LiveData;
 
-import com.android.covidsafe.AppExecutors;
-import com.android.covidsafe.db.AppDatabase;
 import com.android.covidsafe.db.SubnationalDao;
 import com.android.covidsafe.vo.Subnational;
 
@@ -21,14 +19,10 @@ import javax.inject.Singleton;
  */
 @Singleton
 public class SubnationalRepository {
-    private final AppDatabase db;
     private final SubnationalDao subnationalDao;
-    private final AppExecutors appExecutors;
 
     @Inject
-    SubnationalRepository(AppExecutors appExecutors, AppDatabase db, SubnationalDao subnationalDao) {
-        this.appExecutors = appExecutors;
-        this.db = db;
+    SubnationalRepository(SubnationalDao subnationalDao) {
         this.subnationalDao = subnationalDao;
     }
 

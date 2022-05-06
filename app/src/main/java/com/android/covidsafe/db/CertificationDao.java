@@ -7,7 +7,6 @@ import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 
 import com.android.covidsafe.vo.Certification;
-import com.android.covidsafe.vo.User;
 
 /**
  * Interface for database access for Certification related operations.

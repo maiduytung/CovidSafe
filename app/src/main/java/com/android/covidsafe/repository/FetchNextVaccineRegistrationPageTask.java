@@ -6,7 +6,7 @@ import androidx.lifecycle.MutableLiveData;
 import com.android.covidsafe.api.ApiResponse;
 import com.android.covidsafe.api.VaccineRegistrationResponse;
 import com.android.covidsafe.api.VaccineRegistrationService;
-import com.android.covidsafe.db.AppDatabase;
+import com.android.covidsafe.db.SecureDatabase;
 import com.android.covidsafe.vo.Resource;
 import com.android.covidsafe.vo.VaccineRegistrationResult;
 
@@ -23,9 +23,9 @@ public class FetchNextVaccineRegistrationPageTask implements Runnable {
     private final MutableLiveData<Resource<Boolean>> liveData = new MutableLiveData<>();
     private final String query;
     private final VaccineRegistrationService vaccineRegistrationService;
-    private final AppDatabase db;
+    private final SecureDatabase db;
 
-    FetchNextVaccineRegistrationPageTask(String query, VaccineRegistrationService vaccineRegistrationService, AppDatabase db) {
+    FetchNextVaccineRegistrationPageTask(String query, VaccineRegistrationService vaccineRegistrationService, SecureDatabase db) {
         this.query = query;
         this.vaccineRegistrationService = vaccineRegistrationService;
         this.db = db;

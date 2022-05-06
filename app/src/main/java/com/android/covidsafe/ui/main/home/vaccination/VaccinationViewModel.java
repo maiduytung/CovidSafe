@@ -30,11 +30,8 @@ public class VaccinationViewModel extends ViewModel {
 
     private final NextPageHandler nextPageHandler;
 
-    private final LiveData<Resource<Profile>> profileResource;
-
     @Inject
     VaccinationViewModel(VaccinationRepository vaccinationRepository, ProfileRepository profileRepository) {
-        profileResource = profileRepository.loadProfile();
         nextPageHandler = new NextPageHandler(vaccinationRepository);
         results = Transformations.switchMap(query, query -> {
             if (query == null || query.trim().length() == 0) {
@@ -43,11 +40,6 @@ public class VaccinationViewModel extends ViewModel {
                 return vaccinationRepository.getAll(query);
             }
         });
-    }
-
-    @VisibleForTesting
-    public LiveData<Resource<Profile>> getProfileResource() {
-        return profileResource;
     }
 
     @VisibleForTesting

@@ -21,9 +21,9 @@ public interface EthnicDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertAll(List<Ethnic> ethnicList);
 
-    @Query("SELECT * FROM ethnic")
+    @Query("SELECT * FROM Ethnic")
     LiveData<List<Ethnic>> getAll();
 
-    @Query("SELECT name FROM ethnic WHERE id = :id")
+    @Query("SELECT name FROM Ethnic WHERE id = :id")
     LiveData<String> getNameById(String id);
 }

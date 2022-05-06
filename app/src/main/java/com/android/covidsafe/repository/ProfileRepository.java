@@ -5,15 +5,14 @@ import androidx.annotation.Nullable;
 import androidx.lifecycle.LiveData;
 
 import com.android.covidsafe.AppExecutors;
-import com.android.covidsafe.api.APIService;
+import com.android.covidsafe.api.ProfileService;
 import com.android.covidsafe.api.ApiResponse;
-import com.android.covidsafe.db.AppDatabase;
+import com.android.covidsafe.db.SecureDatabase;
 import com.android.covidsafe.db.ProfileDao;
 import com.android.covidsafe.utilities.RateLimiter;
 import com.android.covidsafe.vo.Profile;
 import com.android.covidsafe.vo.Resource;
 import com.android.covidsafe.vo.request.ProfileRequest;
-import com.android.covidsafe.vo.response.BaseResponse;
 
 import java.util.concurrent.TimeUnit;
 
@@ -25,18 +24,18 @@ import javax.inject.Singleton;
  */
 @Singleton
 public class ProfileRepository {
-    private final AppDatabase db;
+    private final SecureDatabase db;
     private final ProfileDao profileDao;
-    private final APIService apiService;
+    private final ProfileService profileService;
     private final AppExecutors appExecutors;
     private RateLimiter<String> profileRateLimit = new RateLimiter<>(10, TimeUnit.MINUTES);
 
     @Inject
-    ProfileRepository(AppExecutors appExecutors, AppDatabase db, ProfileDao profileDao, APIService apiService) {
+    ProfileRepository(AppExecutors appExecutors, SecureDatabase db, ProfileDao profileDao, ProfileService profileService) {
         this.appExecutors = appExecutors;
         this.db = db;
         this.profileDao = profileDao;
-        this.apiService = apiService;
+        this.profileService = profileService;
     }
 
     public LiveData<Resource<Profile>> loadProfile() {
@@ -60,7 +59,7 @@ public class ProfileRepository {
             @NonNull
             @Override
             protected LiveData<ApiResponse<Profile>> createCall() {
-                return apiService.getProfile();
+                return profileService.getProfile();
             }
 
             @Override
@@ -80,7 +79,7 @@ public class ProfileRepository {
             @NonNull
             @Override
             protected LiveData<ApiResponse<Profile>> createCall() {
-                return apiService.updateProfile(profileRequest);
+                return profileService.updateProfile(profileRequest);
             }
         }.asLiveData();
     }

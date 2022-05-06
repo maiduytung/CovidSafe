@@ -1,4 +1,4 @@
-package com.android.covidsafe;
+package com.android.covidsafe.ui.main;
 
 import android.os.Build;
 import android.os.Bundle;
@@ -13,6 +13,7 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.android.covidsafe.R;
 import com.android.covidsafe.databinding.ActivityMainBinding;
 import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -46,7 +47,7 @@ public class MainActivity extends DaggerAppCompatActivity {
 
         navView = findViewById(R.id.bottom_navigation);
         navView.setBackground(null);
-        navView.getMenu().getItem(1).setEnabled(false);
+//        navView.getMenu().getItem(1).setEnabled(false);
         bottomAppBar = findViewById(R.id.bottom_app_bar);
 
         // Passing each menu ID as a set of Ids because each
@@ -88,11 +89,11 @@ public class MainActivity extends DaggerAppCompatActivity {
 
     private void hideBottomNavigation() {
         bottomAppBar.setVisibility(View.GONE);
-        binding.floatingActionButton.setVisibility(View.GONE);
+//        binding.floatingActionButton.setVisibility(View.GONE);
     }
 
     private void showBottomNavigation() {
         bottomAppBar.setVisibility(View.VISIBLE);
-        binding.floatingActionButton.setVisibility(View.VISIBLE);
+//        binding.floatingActionButton.setVisibility(View.VISIBLE);
     }
 }

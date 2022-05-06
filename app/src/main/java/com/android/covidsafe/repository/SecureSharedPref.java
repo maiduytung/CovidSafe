@@ -1,55 +1,18 @@
 package com.android.covidsafe.repository;
 
-import android.content.Context;
-import android.content.SharedPreferences;
+public interface SecureSharedPref {
+    String getString(String key);
 
-import androidx.security.crypto.EncryptedSharedPreferences;
-import androidx.security.crypto.MasterKey;
+    int getInt(String key);
 
-public class SecureSharedPref implements ISharedPreferences {
+    Boolean getBoolean(String key);
 
-    private SharedPreferences sharedPreferences;
+    void putString(String key, String value);
 
-    public SecureSharedPref(Context context, String key) {
-        try {
-            MasterKey masterKey = new MasterKey.Builder(context)
-                    .setKeyScheme(MasterKey.KeyScheme.AES256_GCM)
-                    .build();
+    void putInt(String key, int value);
 
-            sharedPreferences = EncryptedSharedPreferences.create(
-                    context,
-                    key,
-                    masterKey,
-                    EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
-                    EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
-            );
+    void putBoolean(String key, Boolean value);
 
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    @Override
-    public String getString(String key) {
-        return sharedPreferences.getString(key, null);
-    }
-
-    @Override
-    public int getInt(String key) {
-        return sharedPreferences.getInt(key, 0);
-    }
-
-    @Override
-    public void putString(String key, String value) {
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString(key, value);
-        editor.apply();
-    }
-
-    @Override
-    public void putInt(String key, int value) {
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putInt(key, value);
-        editor.apply();
-    }
+    void delete();
 }
+

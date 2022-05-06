@@ -3,13 +3,14 @@ package com.android.covidsafe.di;
 import android.app.Application;
 
 import com.android.covidsafe.BuildConfig;
-import com.android.covidsafe.api.APIService;
+import com.android.covidsafe.api.AuthService;
 import com.android.covidsafe.api.CertificationService;
 import com.android.covidsafe.api.HealthDeclarationService;
+import com.android.covidsafe.api.ProfileService;
 import com.android.covidsafe.api.ReportService;
+import com.android.covidsafe.api.UserService;
 import com.android.covidsafe.api.VaccinationService;
 import com.android.covidsafe.api.VaccineRegistrationService;
-import com.android.covidsafe.repository.ISharedPreferences;
 import com.android.covidsafe.utilities.AccessTokenAuthenticator;
 import com.android.covidsafe.utilities.AccessTokenInterceptor;
 import com.android.covidsafe.utilities.Constants;
@@ -30,14 +31,14 @@ public class NetworkModule {
 
     @Singleton
     @Provides
-    static AccessTokenInterceptor provideAccessTokenInterceptor(ISharedPreferences sharedPreferences) {
-        return new AccessTokenInterceptor(sharedPreferences);
+    static AccessTokenInterceptor provideAccessTokenInterceptor() {
+        return new AccessTokenInterceptor();
     }
 
     @Singleton
     @Provides
-    static AccessTokenAuthenticator provideAccessTokenAuthenticator(Application application, ISharedPreferences sharedPreferences, Lazy<APIService> webLazyWrapper) {
-        return new AccessTokenAuthenticator(application, sharedPreferences, webLazyWrapper);
+    static AccessTokenAuthenticator provideAccessTokenAuthenticator(Application application, Lazy<AuthService> webLazyWrapper, AccessTokenInterceptor accessTokenInterceptor) {
+        return new AccessTokenAuthenticator(application, webLazyWrapper, accessTokenInterceptor);
     }
 
     @Singleton
@@ -69,8 +70,14 @@ public class NetworkModule {
 
     @Singleton
     @Provides
-    static APIService provideAPIService(Retrofit retrofit) {
-        return retrofit.create(APIService.class);
+    static AuthService provideAuthService(Retrofit retrofit) {
+        return retrofit.create(AuthService.class);
+    }
+
+    @Singleton
+    @Provides
+    static CertificationService provideCertificationService(Retrofit retrofit) {
+        return retrofit.create(CertificationService.class);
     }
 
     @Singleton
@@ -81,8 +88,8 @@ public class NetworkModule {
 
     @Singleton
     @Provides
-    static VaccineRegistrationService provideVaccineRegistrationService(Retrofit retrofit) {
-        return retrofit.create(VaccineRegistrationService.class);
+    static ProfileService provideProfileService(Retrofit retrofit) {
+        return retrofit.create(ProfileService.class);
     }
 
     @Singleton
@@ -93,13 +100,19 @@ public class NetworkModule {
 
     @Singleton
     @Provides
+    static UserService provideUserService(Retrofit retrofit) {
+        return retrofit.create(UserService.class);
+    }
+
+    @Singleton
+    @Provides
     static VaccinationService provideVaccinationService(Retrofit retrofit) {
         return retrofit.create(VaccinationService.class);
     }
 
     @Singleton
     @Provides
-    static CertificationService provideCertificationService(Retrofit retrofit) {
-        return retrofit.create(CertificationService.class);
+    static VaccineRegistrationService provideVaccineRegistrationService(Retrofit retrofit) {
+        return retrofit.create(VaccineRegistrationService.class);
     }
 }

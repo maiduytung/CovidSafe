@@ -9,7 +9,7 @@ import com.android.covidsafe.AppExecutors;
 import com.android.covidsafe.api.ApiResponse;
 import com.android.covidsafe.api.VaccinationResponse;
 import com.android.covidsafe.api.VaccinationService;
-import com.android.covidsafe.db.AppDatabase;
+import com.android.covidsafe.db.SecureDatabase;
 import com.android.covidsafe.db.VaccinationDao;
 import com.android.covidsafe.utilities.AbsentLiveData;
 import com.android.covidsafe.utilities.RateLimiter;
@@ -33,7 +33,7 @@ import javax.inject.Singleton;
 @Singleton
 public class VaccinationRepository {
 
-    private final AppDatabase db;
+    private final SecureDatabase db;
 
     private final VaccinationDao vaccinationDao;
 
@@ -44,14 +44,14 @@ public class VaccinationRepository {
     private RateLimiter<String> vaccinationListRateLimit = new RateLimiter<>(10, TimeUnit.MINUTES);
 
     @Inject
-    public VaccinationRepository(AppExecutors appExecutors, AppDatabase db, VaccinationDao vaccinationDao,
+    public VaccinationRepository(AppExecutors appExecutors, SecureDatabase db, VaccinationDao vaccinationDao,
                                  VaccinationService vaccinationService) {
         this.db = db;
         this.vaccinationDao = vaccinationDao;
         this.vaccinationService = vaccinationService;
         this.appExecutors = appExecutors;
     }
-    
+
     public LiveData<Resource<Vaccination>> getOne(String id) {
         return new NetworkBoundResource<Vaccination, Vaccination>(appExecutors) {
             @Override
@@ -124,7 +124,7 @@ public class VaccinationRepository {
             @NonNull
             @Override
             protected LiveData<ApiResponse<VaccinationResponse>> createCall() {
-                return vaccinationService.getAll(query);
+                return vaccinationService.getAll();
             }
 
             @Override

@@ -8,7 +8,9 @@ import androidx.lifecycle.Transformations;
 import androidx.lifecycle.ViewModel;
 
 import com.android.covidsafe.repository.AuthRepository;
+import com.android.covidsafe.repository.SecureSharedPref;
 import com.android.covidsafe.utilities.AbsentLiveData;
+import com.android.covidsafe.utilities.Constants;
 import com.android.covidsafe.vo.Resource;
 import com.android.covidsafe.vo.Token;
 import com.android.covidsafe.vo.request.LoginRequest;
@@ -44,5 +46,4 @@ public class LoginViewModel extends ViewModel {
         LoginRequest loginRequest = new LoginRequest(username.getValue(), password.getValue(), deviceId);
         this.loginUser.setValue(loginRequest);
     }
-
 }

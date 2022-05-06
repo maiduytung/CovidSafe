@@ -5,16 +5,13 @@ import androidx.annotation.Nullable;
 import androidx.lifecycle.LiveData;
 
 import com.android.covidsafe.AppExecutors;
+import com.android.covidsafe.api.UserService;
 import com.android.covidsafe.api.ApiResponse;
-import com.android.covidsafe.api.APIService;
-import com.android.covidsafe.db.AppDatabase;
+import com.android.covidsafe.db.SecureDatabase;
 import com.android.covidsafe.db.UserDao;
-import com.android.covidsafe.utilities.Constants;
 import com.android.covidsafe.utilities.RateLimiter;
 import com.android.covidsafe.vo.Resource;
 import com.android.covidsafe.vo.User;
-import com.android.covidsafe.vo.request.ProfileRequest;
-import com.android.covidsafe.vo.response.BaseResponse;
 
 import java.util.concurrent.TimeUnit;
 
@@ -26,20 +23,18 @@ import javax.inject.Singleton;
  */
 @Singleton
 public class UserRepository {
-    private final AppDatabase db;
+    private final SecureDatabase db;
     private final UserDao userDao;
-    private final APIService apiService;
+    private final UserService userService;
     private final AppExecutors appExecutors;
-    private final ISharedPreferences sharedPreference;
     private RateLimiter<String> userRateLimit = new RateLimiter<>(10, TimeUnit.MINUTES);
 
     @Inject
-    UserRepository(AppExecutors appExecutors, AppDatabase db, UserDao userDao, APIService apiService, ISharedPreferences sharedPreference) {
+    UserRepository(AppExecutors appExecutors, SecureDatabase db, UserDao userDao, UserService userService) {
         this.appExecutors = appExecutors;
         this.db = db;
         this.userDao = userDao;
-        this.apiService = apiService;
-        this.sharedPreference = sharedPreference;
+        this.userService = userService;
     }
 
     public LiveData<Resource<User>> loadUser() {
@@ -47,7 +42,6 @@ public class UserRepository {
             @Override
             protected void saveCallResult(@NonNull User item) {
                 userDao.insert(item);
-                sharedPreference.putString(Constants.CURRENT_USER_ID, item.id);
             }
 
             @Override
@@ -64,7 +58,7 @@ public class UserRepository {
             @NonNull
             @Override
             protected LiveData<ApiResponse<User>> createCall() {
-                return apiService.getUser();
+                return userService.getUser();
             }
 
             @Override

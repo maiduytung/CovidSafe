@@ -16,6 +16,6 @@ public interface ProfileDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insert(Profile profile);
 
-    @Query("SELECT * FROM profile")
+    @Query("SELECT * FROM Profile")
     LiveData<Profile> loadProfile();
 }

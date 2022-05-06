@@ -1,11 +1,11 @@
-package com.android.covidsafe;
+package com.android.covidsafe.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
 import com.android.covidsafe.databinding.ActivitySplashBinding;
-import com.android.covidsafe.repository.AuthRepository;
+import com.android.covidsafe.repository.SecureSharedPref;
 import com.android.covidsafe.ui.auth.AuthActivity;
 
 import javax.inject.Inject;
@@ -17,7 +17,7 @@ public class SplashActivity extends DaggerAppCompatActivity {
     private ActivitySplashBinding binding;
 
     @Inject
-    AuthRepository authRepository;
+    SecureSharedPref secureSharedPref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,12 +29,7 @@ public class SplashActivity extends DaggerAppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                if (authRepository.isLogin()) {
-                    startActivity(new Intent(SplashActivity.this, MainActivity.class));
-                } else {
-                    startActivity(new Intent(SplashActivity.this, AuthActivity.class));
-                }
-
+                startActivity(new Intent(SplashActivity.this, AuthActivity.class));
                 finish();
             }
         }, 3000);

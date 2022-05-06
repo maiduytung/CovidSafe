@@ -9,6 +9,7 @@
     <string name="login_password">Mật khẩu</string>
     <string name="login_forgot_password">Quên mật khẩu?</string>
     <string name="login_fingerprint">Đăng nhập bằng vân tay</string>
+    <string name="login_fingerprint_detail">Đăng nhập bằng thông tin xác thực sinh trắc học của bạn</string>
     <string name="login_you_don_not_have_account">Bạn chưa có tài khoản?</string>
     <string name="login_register_now">Đăng ký ngay</string>
 
@@ -249,7 +250,6 @@
     <string name="vaccination_detail_show">Xem hồ sơ</string>
     <string name="vaccination_detail_no_vaccine_registration">Không có hồ sơ đăng ký tiêm</string>
 
-
     <!--    Hint-->
     <string name="hint_enter_password">Nhập mật khẩu</string>
     <string name="hint_enter_content">Nhập nội dung</string>
@@ -271,7 +271,6 @@
     <string name="button_add_health_declaration">Khai báo y tế</string>
     <string name="button_add_report">Gửi phản ánh</string>
 
-
     <string name="profile_success">Cập nhật thành công</string>
     <string name="profile_error">Đã có lỗi xảy ra, vui lòng thử lại sau</string>
 
@@ -281,13 +280,14 @@
     <string name="status_registration">Đăng ký thành công</string>
     <string name="status_refuse">Từ chối</string>
 
+    <string name="success_authentication_succeeded">Xác thực thành công</string>
     <string name="success_data_update_complete">Cập nhật dữ liệu thành công.</string>
-
     <string name="success_add_vaccine_registration">Đăng ký tiêm thành công</string>
     <string name="success_add_health_declaration">Khai báo y tế thành công</string>
     <string name="success_add_report">Gửi phản ánh thành công</string>
 
 
+    <string name="error_authentication_failed">Xác thực không thành công</string>
     <string name="error_phone_number_invalid">Số điện thoại không hợp lệ</string>
     <string name="error_required_field"><font color='#FFFF0000'>*</font> Trường bắt buộc</string>
     <string name="error_invalid_email">Email phải có dạng abc@def.ghj</string>
@@ -312,7 +312,7 @@
     <string name="home_report_detail">Phản ánh</string>
     <string name="home_vaccine_registration">Đăng ký tiêm vắc xin</string>
     <string name="home_vaccine_registration_detail">Đăng ký vắc xin Covid-19 cho cá nhân</string>
-    <string name="home_no_information">Không có thông tin về việc tiêm chủng của bạn. Cập nhật mã số định danh và thử lại sau.</string>
+    <string name="home_no_information">Không có dữ liệu được cập nhật</string>
     <string name="home_health_records">Hồ sơ sức khoẻ</string>
     <string name="home_no_injected">Chưa tiêm vaccine</string>
     <string name="home_injected_dose">Đã tiêm vaccine mũi %s</string>
@@ -320,10 +320,13 @@
 
     <!--    Account Fragment-->
     <string name="account_title">Tài khoản</string>
-    <string name="account_identifier">Mã định danh</string>
+    <string name="account_id">ID: %s</string>
     <string name="account_profile">Thông tin cá nhân</string>
+    <string name="account_setting">Cài đặt</string>
     <string name="account_logout">Đăng xuất</string>
 
+    <string name="setting_title">Cài đặt</string>
+    <string name="setting_fingerprint">Xác thực sinh trắc học</string>
 
     <!--    Toast-->
     <string name="toast_notifytitle">Thông báo</string>
@@ -339,7 +342,6 @@
     <string name="toast_invalidphonenumber">Số điện thoại không hợp lệ!</string>
     <string name="toast_otpsentsuccessfully">Mã OTP đã được gửi về số điện thoại!</string>
     <string name="toast_otpinvalidorexpired">Mã OTP không hợp lệ hoặc đã hết hạn!</string>
-
 
     <string name="empty_result">Không có <b>%s</b> đã khai báo</string>
 
@@ -357,8 +359,6 @@
     <string name="empty_search_result">No results for <b>%s</b></string>
     <string name="a11y_contributor_avatar">contributor avatar</string>
 
-    <string name="prefix_phone_number">+84</string>
-
     <string name="identification_number">Mã số định danh</string>
 
     <string name="camera_access_required">Camera access is required to display the camera preview.</string>
@@ -369,4 +369,11 @@
     <string name="camera_permission_denied">Camera permission request was denied.</string>
     <string name="camera_unavailable"><b>Camera could not be opened.</b>\nThis occurs when the camera is not available (for example it is already in use) or if the system has denied access (for example when camera access has been disabled).</string>
     <string name="error_agree">Bạn phải đồng ý các điều khoản trước khi gửi dữ liệu.</string>
+    <string name="toast_logout_success">Đăng xuất thành công</string>
+
+    <string name="prompt_info_title">Xác thực dấu vân tay</string>
+    <string name="prompt_info_subtitle">Vui lòng đăng nhập để có quyền truy cập</string>
+    <string name="prompt_info_description">Ứng dụng xác thực dựa trên sinh trắc học</string>
+    <string name="prompt_info_use_app_password">Sử dụng mật khẩu</string>
+    <string name="toast_login_fingerprint_not_setup">Xác thực bằng vân tay chưa được cài đặt</string>
 </resources>

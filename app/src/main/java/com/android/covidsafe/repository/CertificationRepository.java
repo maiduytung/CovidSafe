@@ -7,7 +7,7 @@ import androidx.lifecycle.LiveData;
 import com.android.covidsafe.AppExecutors;
 import com.android.covidsafe.api.ApiResponse;
 import com.android.covidsafe.api.CertificationService;
-import com.android.covidsafe.db.AppDatabase;
+import com.android.covidsafe.db.SecureDatabase;
 import com.android.covidsafe.db.CertificationDao;
 import com.android.covidsafe.utilities.Constants;
 import com.android.covidsafe.utilities.RateLimiter;
@@ -24,21 +24,21 @@ import javax.inject.Singleton;
  */
 @Singleton
 public class CertificationRepository {
-    private final AppDatabase db;
+    private final SecureDatabase db;
     private final CertificationDao certificationDao;
     private final CertificationService certificationService;
     private final AppExecutors appExecutors;
-    private RateLimiter<String> certificationRateLimit = new RateLimiter<>(10, TimeUnit.MINUTES);
+    private RateLimiter<String> certificationRateLimit = new RateLimiter<>(5, TimeUnit.MINUTES);
 
     @Inject
-    CertificationRepository(AppExecutors appExecutors, AppDatabase db, CertificationDao certificationDao, CertificationService certificationService) {
+    CertificationRepository(AppExecutors appExecutors, SecureDatabase db, CertificationDao certificationDao, CertificationService certificationService) {
         this.appExecutors = appExecutors;
         this.db = db;
         this.certificationDao = certificationDao;
         this.certificationService = certificationService;
     }
 
-    public LiveData<Resource<Certification>> loadCertification(String id) {
+    public LiveData<Resource<Certification>> loadCertification() {
         return new NetworkBoundResource<Certification, Certification>(appExecutors) {
             @Override
             protected void saveCallResult(@NonNull Certification item) {
@@ -47,8 +47,7 @@ public class CertificationRepository {
 
             @Override
             protected boolean shouldFetch(@Nullable Certification data) {
-//                return data == null || certificationRateLimit.shouldFetch(Constants.CERTIFICATION_KEY);
-                return true;
+                return data == null || certificationRateLimit.shouldFetch(Constants.CERTIFICATION_KEY);
             }
 
             @NonNull
@@ -60,7 +59,7 @@ public class CertificationRepository {
             @NonNull
             @Override
             protected LiveData<ApiResponse<Certification>> createCall() {
-                return certificationService.getOne(id);
+                return certificationService.getCurrentUser();
             }
 
             @Override

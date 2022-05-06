@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
 
 import com.android.covidsafe.AppExecutors;
-import com.android.covidsafe.api.APIService;
+import com.android.covidsafe.api.AuthService;
 import com.android.covidsafe.api.ApiResponse;
 import com.android.covidsafe.vo.Resource;
 import com.android.covidsafe.vo.Verification;
@@ -20,12 +20,12 @@ import javax.inject.Singleton;
  */
 @Singleton
 public class VerificationRepository {
-    private final APIService apiService;
+    private final AuthService authService;
     private final AppExecutors appExecutors;
 
     @Inject
-    VerificationRepository(AppExecutors appExecutors, APIService apiService) {
-        this.apiService = apiService;
+    VerificationRepository(AppExecutors appExecutors, AuthService authService) {
+        this.authService = authService;
         this.appExecutors = appExecutors;
     }
 
@@ -38,7 +38,7 @@ public class VerificationRepository {
             @NonNull
             @Override
             protected LiveData<ApiResponse<BaseResponse>> createCall() {
-                return apiService.sendVerification(sendVerificationRequest);
+                return authService.sendVerification(sendVerificationRequest);
             }
         }.asLiveData();
     }
@@ -52,7 +52,7 @@ public class VerificationRepository {
             @NonNull
             @Override
             protected LiveData<ApiResponse<Verification>> createCall() {
-                return apiService.verify(otpVerificationRequest);
+                return authService.verify(otpVerificationRequest);
             }
         }.asLiveData();
     }

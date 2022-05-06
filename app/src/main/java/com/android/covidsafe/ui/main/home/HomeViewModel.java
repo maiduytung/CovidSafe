@@ -17,20 +17,13 @@ import javax.inject.Inject;
 
 public class HomeViewModel extends ViewModel {
 
-    private final MutableLiveData<String> identification = new MutableLiveData<>();
     private final LiveData<Resource<Profile>> profileResource;
     private final LiveData<Resource<Certification>> certificationResource;
 
     @Inject
     public HomeViewModel(ProfileRepository profileRepository, CertificationRepository certificationRepository) {
         profileResource = profileRepository.loadProfile();
-        certificationResource = Transformations.switchMap(identification, identification -> {
-            if (identification == null) {
-                return AbsentLiveData.create();
-            } else {
-                return certificationRepository.loadCertification(identification);
-            }
-        });
+        certificationResource = certificationRepository.loadCertification();
     }
 
     @VisibleForTesting
@@ -41,9 +34,5 @@ public class HomeViewModel extends ViewModel {
     @VisibleForTesting
     public LiveData<Resource<Certification>> getCertificationResource() {
         return certificationResource;
-    }
-
-    public void setIdentification(String id) {
-        identification.setValue(id);
     }
 }

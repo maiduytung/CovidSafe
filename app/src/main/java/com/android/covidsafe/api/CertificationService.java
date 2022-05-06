@@ -15,6 +15,6 @@ import retrofit2.http.Path;
 @Singleton
 public interface CertificationService {
 
-    @GET("/api/users/certification/{id}")
-    LiveData<ApiResponse<Certification>> getOne(@Path("id") String id);
+    @GET("/api/user/certification")
+    LiveData<ApiResponse<Certification>> getCurrentUser();
 }

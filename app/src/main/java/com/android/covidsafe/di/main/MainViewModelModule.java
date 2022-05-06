@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel;
 import com.android.covidsafe.di.ViewModelKey;
 import com.android.covidsafe.ui.main.account.AccountViewModel;
 import com.android.covidsafe.ui.main.account.profile.ProfileViewModel;
+import com.android.covidsafe.ui.main.account.setting.SettingViewModel;
 import com.android.covidsafe.ui.main.home.HomeViewModel;
 import com.android.covidsafe.ui.main.home.healthdeclaration.HealthDeclarationViewModel;
 import com.android.covidsafe.ui.main.home.healthdeclaration.add.AddHealthDeclarationViewModel;
@@ -94,4 +95,9 @@ public abstract class MainViewModelModule {
     @IntoMap
     @ViewModelKey(VaccinationDetailViewModel.class)
     abstract ViewModel bindVaccinationDetailViewModel(VaccinationDetailViewModel vaccinationDetailViewModel);
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(SettingViewModel.class)
+    abstract ViewModel bindSettingViewModel(SettingViewModel settingViewModel);
 }

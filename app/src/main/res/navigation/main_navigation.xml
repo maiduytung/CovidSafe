@@ -38,6 +38,12 @@
         <action
             android:id="@+id/action_account_fragment_to_profile_fragment"
             app:destination="@id/profile_fragment" />
+        <action
+            android:id="@+id/action_account_fragment_to_setting_fragment"
+            app:destination="@id/setting_fragment" />
+        <action
+            android:id="@+id/action_account_fragment_to_auth_activity"
+            app:destination="@id/auth_activity" />
     </fragment>
 
     <fragment
@@ -140,7 +146,7 @@
         android:id="@+id/vaccination_fragment"
         android:name="com.android.covidsafe.ui.main.home.vaccination.VaccinationFragment"
         android:label="@string/vaccination_title"
-        tools:layout="@layout/fragment_vaccination" >
+        tools:layout="@layout/fragment_vaccination">
         <action
             android:id="@+id/action_vaccination_fragment_to_vaccination_detail_fragment"
             app:destination="@id/vaccination_detail_fragment" />
@@ -149,7 +155,16 @@
         android:id="@+id/vaccination_detail_fragment"
         android:name="com.android.covidsafe.ui.main.home.vaccination.detail.VaccinationDetailFragment"
         android:label="@string/vaccination_detail_title"
-        tools:layout="@layout/fragment_vaccination_detail"/>
+        tools:layout="@layout/fragment_vaccination_detail" />
+    <fragment
+        android:id="@+id/setting_fragment"
+        android:name="com.android.covidsafe.ui.main.account.setting.SettingFragment"
+        android:label="@string/setting_title"
+        tools:layout="@layout/fragment_setting" />
+    <activity
+        android:id="@+id/auth_activity"
+        android:name="com.android.covidsafe.ui.auth.AuthActivity"
+        tools:layout="@layout/activity_auth" />
 
 
 </navigation>

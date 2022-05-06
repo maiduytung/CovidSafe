@@ -1,13 +1,16 @@
 package com.android.covidsafe.utilities;
 
 public class Constants {
+    public final static String SHARED_PREFS_FILENAME = "biometric_prefs";
+    public final static String CIPHERTEXT_WRAPPER = "ciphertext_wrapper";
     public final static String API_BASE_URL = "https://covid-safe.herokuapp.com";
-    public final static String TOKEN = "Token";
+    public final static String USERNAME = "USERNAME";
+    public final static String PASSWORD = "PASSWORD";
+    public final static String SECURE_DATABASE_KEY = "SECURE_DATABASE_KEY";
     public final static String TOKEN_TYPE = "TOKEN_TYPE";
     public final static String ACCESS_TOKEN = "ACCESS_TOKEN";
     public final static String EXPIRES_IN = "EXPIRES_IN";
     public final static String REFRESH_TOKEN = "REFRESH_TOKEN";
-    public final static String CURRENT_USER_ID = "CURRENT_USER_ID";
     public final static String REGISTER_KEY = "REGISTER";
     public final static String HEALTH_DECLARATION_KEY = "HEALTH_DECLARATION_KEY";
     public final static String VACCINE_REGISTRATION_KEY = "VACCINE_REGISTRATION_KEY";
@@ -25,6 +28,7 @@ public class Constants {
     public final static String SUBNATIONAL_TYPE_PROVINCE = "province";
     public final static String SUBNATIONAL_TYPE_DISTRICT = "district";
     public final static String SUBNATIONAL_TYPE_WARD = "ward";
+    public final static String SETTING_BIOMETRIC = "SETTING_BIOMETRIC";
 
 
 }
